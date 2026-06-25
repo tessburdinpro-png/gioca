@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Giocà Bastia — Le nouveau rendez-vous du divertissement</title>
-  <meta name="description" content="Giocà Bastia : centre de jeux unique. Laser Game, BombSquad, Shuffle Board, Karaoké Box, fléchettes interactives, Spritzeria. Entre amis, en famille ou pour vos événements." />
+  <title>Giocà Bastia — Vivez une expérience unique</title>
+  <meta name="description" content="Giocà Bastia : le centre de jeux nouvelle génération. Laser Game, BombSquad, Shuffle Board, Karaoké Box, fléchettes interactives & Spritzeria. Entre amis, en famille ou pour vos événements." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
@@ -12,13 +12,16 @@
 </head>
 <body>
 
+  <!-- Scroll progress -->
+  <div class="progress" id="progress"></div>
+
   <!-- ===== HEADER ===== -->
   <header class="header" id="header">
     <div class="container header__inner">
       <a href="#accueil" class="logo">GIOC<span>À</span></a>
       <nav class="nav" id="nav">
-        <a href="#activites">Activités</a>
         <a href="#jeux">Jeux</a>
+        <a href="#experience">L'expérience</a>
         <a href="#groupes">Groupes</a>
         <a href="#actus">Actus</a>
         <a href="#contact">Contact</a>
@@ -28,155 +31,158 @@
     </div>
   </header>
 
-  <!-- ===== HERO ===== -->
+  <!-- ===== HERO (video bg) ===== -->
   <section class="hero" id="accueil">
-    <div class="hero__glow"></div>
+    <video class="hero__video" autoplay muted loop playsinline poster="assets/poster.jpg">
+      <source src="assets/gioca.mp4" type="video/mp4" />
+    </video>
+    <div class="hero__overlay"></div>
     <div class="container hero__inner">
-      <p class="hero__eyebrow reveal">★ Bastia · Centre de jeux nouvelle génération</p>
-      <h1 class="hero__title reveal">Vivez une<br><span>expérience unique.</span></h1>
-      <p class="hero__sub reveal">Le nouveau rendez-vous du divertissement à Bastia&nbsp;!</p>
-      <div class="hero__cta reveal">
+      <p class="hero__eyebrow up">★ Bastia · Centre de jeux nouvelle génération</p>
+      <h1 class="hero__title">
+        <span class="line up d1">Vivez une</span>
+        <span class="line up d2"><em>expérience</em></span>
+        <span class="line up d3">unique.</span>
+      </h1>
+      <p class="hero__sub up d4">Le nouveau rendez-vous du divertissement à Bastia.</p>
+      <div class="hero__cta up d5">
         <a href="#reservation" class="btn btn--pink btn--lg">Réserver maintenant</a>
-        <a href="#jeux" class="btn btn--ghost btn--lg">Découvrir les jeux</a>
+        <a href="#jeux" class="btn btn--glass btn--lg">▶ Voir les jeux</a>
       </div>
-      <div class="hero__tags reveal">
-        <span>🎯 Laser Game</span>
-        <span>💣 BombSquad</span>
-        <span>🎤 Karaoké Box</span>
-        <span>🎮 Action Game</span>
-        <span>🎱 Shuffle Board</span>
+      <div class="hero__tags up d6">
+        <span>🎯 Laser Game</span><span>💣 BombSquad</span><span>🎱 Shuffle Board</span><span>🎤 Karaoké</span><span>🕹️ Arcade</span>
       </div>
     </div>
+    <a href="#stats" class="hero__scroll" aria-label="Défiler"><span></span></a>
   </section>
 
   <!-- ===== MARQUEE ===== -->
   <div class="marquee">
     <div class="marquee__track">
-      <span>ACTION GAME ✦ LASER GAME ✦ KARAOKÉ BOX ✦ FLÉCHETTES INTERACTIVES ✦ SHUFFLE BOARD ✦ BOMBSQUAD ✦ SPRITZERIA ✦&nbsp;</span>
-      <span>ACTION GAME ✦ LASER GAME ✦ KARAOKÉ BOX ✦ FLÉCHETTES INTERACTIVES ✦ SHUFFLE BOARD ✦ BOMBSQUAD ✦ SPRITZERIA ✦&nbsp;</span>
+      <span>ACTION GAME ✦ LASER GAME ✦ KARAOKÉ BOX ✦ FLÉCHETTES INTERACTIVES ✦ SHUFFLE BOARD ✦ BOMBSQUAD ✦ ARCADE ✦ SPRITZERIA ✦&nbsp;</span>
+      <span>ACTION GAME ✦ LASER GAME ✦ KARAOKÉ BOX ✦ FLÉCHETTES INTERACTIVES ✦ SHUFFLE BOARD ✦ BOMBSQUAD ✦ ARCADE ✦ SPRITZERIA ✦&nbsp;</span>
     </div>
   </div>
 
-  <!-- ===== INTRO / ACTIVITÉS ===== -->
-  <section class="section" id="activites">
+  <!-- ===== STATS ===== -->
+  <section class="stats" id="stats">
+    <div class="container stats__grid">
+      <div class="stat reveal"><div class="stat__num" data-to="8">0</div><div class="stat__lbl">activités fun</div></div>
+      <div class="stat reveal"><div class="stat__num" data-to="10000" data-suffix="+">0</div><div class="stat__lbl">joueurs conquis</div></div>
+      <div class="stat reveal"><div class="stat__num" data-to="7">0</div><div class="stat__lbl">jours / 7</div></div>
+      <div class="stat reveal"><div class="stat__num" data-to="5" data-suffix="★">0</div><div class="stat__lbl">l'ambiance</div></div>
+    </div>
+  </section>
+
+  <!-- ===== JEUX ===== -->
+  <section class="section" id="jeux">
     <div class="container">
       <div class="section__head reveal">
-        <span class="kicker">Le concept</span>
-        <h2 class="section__title">Le nouveau rendez-vous du divertissement à Bastia</h2>
-        <p class="section__lead">Découvrez un centre de jeux unique où fun et sensations se rencontrent. Vivez des expériences immersives&nbsp;: Action Game, Laser Game, Karaoké Box, fléchettes interactives et bien d'autres activités. Le lieu parfait pour s'amuser entre amis, en famille ou pour organiser vos événements&nbsp;: team building, séminaire, anniversaire, EVJF / EVG.</p>
+        <span class="kicker">Ton spot games préféré</span>
+        <h2 class="section__title">Maintenant, c'est à <span class="hl">toi de jouer.</span></h2>
+        <p class="section__lead">Seul ou à plusieurs, à tout âge&nbsp;: choisis ton terrain de jeu et lance la partie.</p>
       </div>
-      <div class="values">
-        <article class="value reveal">
-          <div class="value__num">01</div>
-          <h3>Expériences inédites</h3>
-          <p>Partagez des moments avec vos amis, votre famille ou vos collègues et créez des souvenirs mémorables.</p>
+      <div class="games">
+        <article class="game reveal" style="--img:url('assets/f1.jpg')">
+          <div class="game__bg"></div>
+          <div class="game__content">
+            <span class="game__tag">Action en équipe</span>
+            <h3>BombSquad</h3>
+            <p>Le laser game nouvelle génération : missions, adrénaline et fous rires garantis.</p>
+            <a href="#reservation" class="game__link">Réserver →</a>
+          </div>
         </article>
-        <article class="value reveal">
-          <div class="value__num">02</div>
-          <h3>Pour tous les âges</h3>
-          <p>Des expériences pour toutes les générations, du plaisir partagé aux défis les plus stimulants.</p>
+        <article class="game reveal" style="--img:url('assets/f2.jpg')">
+          <div class="game__bg"></div>
+          <div class="game__content">
+            <span class="game__tag">Immersif</span>
+            <h3>Laser Game</h3>
+            <p>Affrontez-vous dans une arène immersive. Visez juste, jouez collectif, dominez.</p>
+            <a href="#reservation" class="game__link">Réserver →</a>
+          </div>
         </article>
-        <article class="value reveal">
-          <div class="value__num">03</div>
-          <h3>Toujours plus</h3>
-          <p>Une multitude d'activités&nbsp;: jouez, découvrez et prolongez le plaisir autant que vous le souhaitez&nbsp;!</p>
+        <article class="game reveal" style="--img:url('assets/f3.jpg')">
+          <div class="game__bg"></div>
+          <div class="game__content">
+            <span class="game__tag">Adresse · by HUN</span>
+            <h3>Shuffle Board</h3>
+            <p>Un jeu d'adresse traditionnel revisité, un mythe d'outre-Manche. Le « Shuffle Showdown ».</p>
+            <a href="#reservation" class="game__link">Réserver →</a>
+          </div>
+        </article>
+        <article class="game reveal" style="--img:url('assets/f4.jpg')">
+          <div class="game__bg"></div>
+          <div class="game__content">
+            <span class="game__tag">Sensations</span>
+            <h3>Arcade &amp; simulateurs</h3>
+            <p>Course, tir, rythme… une salle d'arcade qui pulse, pour des duels sans fin.</p>
+            <a href="#reservation" class="game__link">Réserver →</a>
+          </div>
+        </article>
+        <article class="game reveal" style="--img:url('assets/poster.jpg')">
+          <div class="game__bg"></div>
+          <div class="game__content">
+            <span class="game__tag">Entre amis</span>
+            <h3>Karaoké Box</h3>
+            <p>Votre salon privé pour pousser la chansonnette. La star, ce soir, c'est vous.</p>
+            <a href="#reservation" class="game__link">Réserver →</a>
+          </div>
+        </article>
+        <article class="game reveal" style="--img:url('assets/f2.jpg')">
+          <div class="game__bg"></div>
+          <div class="game__content">
+            <span class="game__tag">Connecté</span>
+            <h3>Fléchettes interactives</h3>
+            <p>Cibles électroniques, des dizaines de modes de jeu, des duels qui s'enchaînent.</p>
+            <a href="#reservation" class="game__link">Réserver →</a>
+          </div>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- ===== JEUX ===== -->
-  <section class="section section--alt" id="jeux">
-    <div class="container">
-      <div class="section__head reveal">
-        <span class="kicker">Ton spot games préféré</span>
-        <h2 class="section__title">Maintenant, c'est à <span class="hl">toi de jouer&nbsp;!</span></h2>
-        <p class="section__lead">Jouer et s'amuser, à tout âge, seul ou à plusieurs. Choisis ton terrain de jeu.</p>
+  <!-- ===== EXPÉRIENCE (parallax) ===== -->
+  <section class="exp" id="experience">
+    <div class="exp__bg" data-parallax style="--img:url('assets/f3.jpg')"></div>
+    <div class="exp__overlay"></div>
+    <div class="container exp__inner">
+      <h2 class="exp__title reveal">Plus qu'une sortie,<br><span>une décharge d'adrénaline.</span></h2>
+      <p class="exp__lead reveal">Fun et sensations se rencontrent dans un lieu pensé pour vibrer ensemble — entre amis, en famille ou entre collègues.</p>
+      <div class="exp__pills reveal">
+        <span>Expériences inédites</span><span>Pour tous les âges</span><span>Toujours plus de fun</span>
       </div>
-      <div class="games">
-        <article class="game reveal" data-emoji="💣">
-          <div class="game__media">💣</div>
-          <div class="game__body">
-            <h3>BombSquad</h3>
-            <p>Le laser game nouvelle génération&nbsp;: missions en équipe, adrénaline et fous rires garantis.</p>
-            <span class="game__tag">Action en équipe</span>
-          </div>
-        </article>
-        <article class="game reveal" data-emoji="🎯">
-          <div class="game__media">🎯</div>
-          <div class="game__body">
-            <h3>Laser Game</h3>
-            <p>Affrontez-vous dans une arène immersive. Visez juste, jouez collectif, dominez le classement.</p>
-            <span class="game__tag">Immersif</span>
-          </div>
-        </article>
-        <article class="game reveal" data-emoji="🎱">
-          <div class="game__media">🎱</div>
-          <div class="game__body">
-            <h3>Shuffle Board <small>by HUN</small></h3>
-            <p>Un jeu d'adresse traditionnel revisité, un mythe d'outre-Manche pour une expérience atypique.</p>
-            <span class="game__tag">Adresse</span>
-          </div>
-        </article>
-        <article class="game reveal" data-emoji="🎤">
-          <div class="game__media">🎤</div>
-          <div class="game__body">
-            <h3>Karaoké Box</h3>
-            <p>Votre salon privé pour pousser la chansonnette entre amis. La star, ce soir, c'est vous.</p>
-            <span class="game__tag">Entre amis</span>
-          </div>
-        </article>
-        <article class="game reveal" data-emoji="🎯">
-          <div class="game__media">🎲</div>
-          <div class="game__body">
-            <h3>Fléchettes interactives</h3>
-            <p>Des cibles électroniques connectées, des dizaines de modes de jeu, des duels sans fin.</p>
-            <span class="game__tag">Connecté</span>
-          </div>
-        </article>
-        <article class="game reveal" data-emoji="🎮">
-          <div class="game__media">🎮</div>
-          <div class="game__body">
-            <h3>Action Game</h3>
-            <p>Des défis ludiques et physiques pour se dépenser et repousser ses limites en s'amusant.</p>
-            <span class="game__tag">Sensations</span>
-          </div>
-        </article>
+    </div>
+  </section>
+
+  <!-- ===== GROUPES / TEAM BUILDING ===== -->
+  <section class="section section--alt" id="groupes">
+    <div class="container groupes">
+      <div class="groupes__text reveal">
+        <span class="kicker">Groupes &amp; événements</span>
+        <h2 class="section__title">Bien plus qu'un <span class="hl">team building.</span></h2>
+        <p class="section__lead">Anniversaire, EVJF/EVG, séminaire d'entreprise ou soirée privée&nbsp;: on privatise, on organise, vous profitez.</p>
+        <a href="#reservation" class="btn btn--pink btn--lg">Demander un devis</a>
+      </div>
+      <div class="groupes__chips">
+        <div class="chip reveal">🎂 Anniversaires</div>
+        <div class="chip reveal">🥂 EVJF / EVG</div>
+        <div class="chip reveal">💼 Séminaires</div>
+        <div class="chip reveal">🤝 Team building</div>
+        <div class="chip reveal">🎉 Soirées privées</div>
+        <div class="chip reveal">👨‍👩‍👧‍👦 Famille</div>
       </div>
     </div>
   </section>
 
   <!-- ===== SPRITZERIA ===== -->
   <section class="spritz">
-    <div class="container spritz__inner">
-      <div class="spritz__text reveal">
-        <span class="kicker">Spritzeria · drinks &amp; food</span>
-        <h2 class="section__title">On joue, on trinque, on se régale.</h2>
-        <p class="section__lead">Prolongez le plaisir au bar-restaurant Giocà. Cocktails signatures, planches à partager et petite restauration&nbsp;: l'after parfait après la partie.</p>
-        <a href="#contact" class="btn btn--pink">Voir la carte</a>
-      </div>
-      <div class="spritz__media reveal">
-        <div class="spritz__card">🍹<span>Spritzeria</span><small>drinks &amp; food</small></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== GROUPES ===== -->
-  <section class="section" id="groupes">
-    <div class="container">
-      <div class="section__head reveal">
-        <span class="kicker">Groupes &amp; événements</span>
-        <h2 class="section__title">Privatisez Giocà pour vos grands moments</h2>
-        <p class="section__lead">Un anniversaire, un EVJF/EVG, un séminaire ou un team building&nbsp;? On organise tout, vous profitez.</p>
-      </div>
-      <div class="chips">
-        <div class="chip reveal">🎂 Anniversaires</div>
-        <div class="chip reveal">🥂 EVJF / EVG</div>
-        <div class="chip reveal">💼 Séminaires d'entreprise</div>
-        <div class="chip reveal">🤝 Team building</div>
-        <div class="chip reveal">🎉 Soirées privées</div>
-        <div class="chip reveal">👨‍👩‍👧‍👦 Sorties famille</div>
-      </div>
+    <div class="spritz__bg" data-parallax style="--img:url('assets/f4.jpg')"></div>
+    <div class="spritz__overlay"></div>
+    <div class="container spritz__inner reveal">
+      <span class="kicker">Spritzeria · drinks &amp; food</span>
+      <h2 class="section__title">On joue, on trinque,<br>on se régale.</h2>
+      <p class="section__lead">Cocktails signatures, planches à partager et petite restauration : l'after parfait, sans quitter le jeu.</p>
+      <a href="#contact" class="btn btn--glass btn--lg">Voir la carte</a>
     </div>
   </section>
 
@@ -186,7 +192,7 @@
       <div class="fidelite__text">
         <span class="kicker kicker--dark">Giocà Fidélité</span>
         <h2>Récupère ta carte de fidélité</h2>
-        <p>Grâce à ta carte Giocà Fidélité, bénéficie de nos offres spéciales toute l'année. Récupère-la directement auprès de nos Games Masters sur place&nbsp;!</p>
+        <p>Profite de nos offres spéciales toute l'année. Demande ta carte directement auprès de nos Games Masters sur place&nbsp;!</p>
       </div>
       <div class="loyalty-card">
         <div class="loyalty-card__top"><span>GIOCÀ</span> FIDÉLITÉ</div>
@@ -197,61 +203,48 @@
   </section>
 
   <!-- ===== ACTUS ===== -->
-  <section class="section section--alt" id="actus">
+  <section class="section" id="actus">
     <div class="container">
       <div class="section__head reveal">
         <span class="kicker">Actus &amp; programmation</span>
-        <h2 class="section__title">Ce qui se passe chez Giocà</h2>
+        <h2 class="section__title">Ça bouge chez Giocà</h2>
       </div>
       <div class="news">
         <article class="news__card news__card--feature reveal">
           <span class="news__badge">Événement</span>
           <h3>Soirée illimitée</h3>
-          <p>Envie d'une soirée un peu plus fun que la norme&nbsp;? Venez chez Giocà Furiani le <strong>jeudi 21 janvier 2026</strong>, de 19h à 22h. Jeux en illimité&nbsp;!</p>
-          <div class="news__meta">20€ / personne · 19h → 22h</div>
+          <p>Une soirée plus fun que la norme&nbsp;? Rendez-vous chez Giocà Furiani le <strong>jeudi 21 janvier 2026</strong> — jeux en illimité&nbsp;!</p>
+          <div class="news__meta">20€ / pers · 19h → 22h</div>
         </article>
         <article class="news__card reveal">
           <span class="news__badge news__badge--alt">Recrutement</span>
           <h3>On recrute&nbsp;!</h3>
-          <p>Rejoins l'équipe Giocà et deviens Game Master. Passion du jeu et bonne humeur exigées.</p>
+          <p>Rejoins l'équipe et deviens Game Master. Passion du jeu et bonne humeur exigées.</p>
           <a href="#contact" class="link">Postuler →</a>
         </article>
         <article class="news__card reveal">
           <span class="news__badge news__badge--alt">Coupe du Monde</span>
           <h3>Les matchs sur grand écran</h3>
-          <p>On diffuse la Coupe du Monde selon nos horaires d'ouverture, sur plusieurs écrans en simultané.</p>
+          <p>On diffuse la Coupe du Monde selon nos horaires, sur plusieurs écrans en simultané.</p>
           <a href="#contact" class="link">En savoir plus →</a>
         </article>
       </div>
     </div>
   </section>
 
-  <!-- ===== RÉSERVATION (placeholder pour futur système) ===== -->
+  <!-- ===== RÉSERVATION ===== -->
   <section class="reserve" id="reservation">
     <div class="container reserve__inner">
-      <div class="reserve__glow"></div>
       <span class="kicker">Réservation</span>
-      <h2 class="section__title">Réserve ton créneau en quelques clics</h2>
-      <p class="section__lead">Choisis ton activité, ta date et le nombre de joueurs. Confirmation immédiate.</p>
-
-      <!-- NOTE DÉMO : ce bloc simule le futur module de réservation à intégrer -->
-      <div class="booking">
-        <div class="booking__field">
-          <label>Activité</label>
-          <div class="booking__select">🎯 Laser Game ▾</div>
-        </div>
-        <div class="booking__field">
-          <label>Date</label>
-          <div class="booking__select">📅 Sam. 27 juin ▾</div>
-        </div>
-        <div class="booking__field">
-          <label>Joueurs</label>
-          <div class="booking__select">👥 6 joueurs ▾</div>
-        </div>
+      <h2 class="section__title reveal">Réserve ton créneau<br>en quelques clics.</h2>
+      <p class="section__lead reveal">Choisis ton activité, ta date et le nombre de joueurs. Confirmation immédiate.</p>
+      <div class="booking reveal">
+        <div class="booking__field"><label>Activité</label><div class="booking__select">🎯 Laser Game ▾</div></div>
+        <div class="booking__field"><label>Date</label><div class="booking__select">📅 Sam. 27 juin ▾</div></div>
+        <div class="booking__field"><label>Joueurs</label><div class="booking__select">👥 6 joueurs ▾</div></div>
         <button class="btn btn--pink btn--lg booking__btn">Vérifier les dispos</button>
       </div>
-      <p class="reserve__hint">⚙️ Module de réservation en ligne — <strong>à connecter</strong> (démo visuelle pour présentation).</p>
-
+      <p class="reserve__hint">⚙️ Module de réservation en ligne — <strong>à connecter</strong> (démo visuelle).</p>
       <div class="reserve__or">
         <span>ou réservez par téléphone</span>
         <a href="tel:0495463687" class="reserve__phone">📞 04 95 46 36 87</a>
@@ -259,34 +252,26 @@
     </div>
   </section>
 
-  <!-- ===== NEWSLETTER + FOOTER ===== -->
+  <!-- ===== FOOTER ===== -->
   <footer class="footer" id="contact">
     <div class="container">
       <div class="footer__top">
         <div class="footer__brand">
           <a href="#accueil" class="logo logo--footer">GIOC<span>À</span></a>
           <p>Le nouveau rendez-vous du divertissement à Bastia.</p>
-          <div class="socials">
-            <a href="#" aria-label="Instagram">◐ Instagram</a>
-            <a href="#" aria-label="Facebook">◑ Facebook</a>
-            <a href="#" aria-label="TikTok">◓ TikTok</a>
-          </div>
+          <div class="socials"><a href="#">◐ Instagram</a><a href="#">◑ Facebook</a><a href="#">◓ TikTok</a></div>
         </div>
         <div class="footer__news">
           <h4>Newsletter</h4>
-          <p>Reçois toutes nos actus, nouveautés et bons plans Giocà.</p>
+          <p>Reçois nos actus, nouveautés et bons plans Giocà.</p>
           <form class="newsletter" onsubmit="return false;">
             <input type="email" placeholder="Ton e-mail" aria-label="E-mail" />
-            <button class="btn btn--pink">Soumettre</button>
+            <button class="btn btn--pink">OK</button>
           </form>
-          <label class="newsletter__opt"><input type="checkbox" /> J'accepte de recevoir les infos Giocà.</label>
         </div>
         <div class="footer__links">
           <h4>Le club</h4>
-          <a href="#activites">Giocà Story</a>
-          <a href="#contact">Contact</a>
-          <a href="#actus">Recrutement</a>
-          <a href="#reservation">Réservation</a>
+          <a href="#jeux">Nos jeux</a><a href="#contact">Contact</a><a href="#actus">Recrutement</a><a href="#reservation">Réservation</a>
         </div>
       </div>
       <div class="footer__bottom">
@@ -295,6 +280,9 @@
       </div>
     </div>
   </footer>
+
+  <!-- Sticky mobile CTA -->
+  <a href="#reservation" class="sticky-cta">⚡ Réserver ma partie</a>
 
   <script src="main.js"></script>
 </body>
