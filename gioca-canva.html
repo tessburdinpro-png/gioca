@@ -25,14 +25,16 @@ a{color:inherit;text-decoration:none}
 .btn--lg{padding:17px 36px;font-size:17px}
 
 /* header */
-.header{position:fixed;inset:0 0 auto 0;z-index:100;transition:.3s}
-.header.scrolled{background:rgba(8,6,16,.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.header{position:fixed;inset:0 0 auto 0;z-index:100;background:var(--pink);transition:.3s}
+.header.scrolled{background:#d70a6c;box-shadow:0 8px 30px -10px rgba(0,0,0,.55)}
 .hd{display:flex;align-items:center;justify-content:space-between;height:74px}
-.logo{font-family:'Anton',sans-serif;font-size:29px;font-style:italic;letter-spacing:1px}
-.logo span{color:var(--pink)}
-.nav{display:flex;align-items:center;gap:28px}
-.nav a{font-weight:600;font-size:15px;color:#efedf7}
-.nav a:hover{color:var(--pink-2)}
+.logo{font-family:'Anton',sans-serif;font-size:29px;font-style:italic;letter-spacing:1px;color:#fff}
+.logo span{color:#fff}
+.nav{display:flex;align-items:center;gap:14px}
+.nav a{font-weight:700;font-size:13px;letter-spacing:1px;text-transform:uppercase;color:#fff;border:1.6px solid rgba(255,255,255,.7);padding:9px 16px;border-radius:12px;transition:.2s}
+.nav a:hover{background:#fff;color:var(--pink)}
+.nav a.resa{background:#fff;color:var(--pink);border-color:#fff;font-weight:800}
+.nav a.resa:hover{background:#0b0712;color:#fff;border-color:#0b0712}
 .burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer}
 .burger span{width:26px;height:3px;background:#fff;border-radius:3px;transition:.3s}
 
@@ -42,7 +44,7 @@ a{color:inherit;text-decoration:none}
 .hero .ov{position:absolute;inset:0;z-index:1;background:radial-gradient(1000px 600px at 72% 25%,rgba(237,11,118,.32),transparent 60%),linear-gradient(180deg,rgba(8,6,16,.5),rgba(8,6,16,.92))}
 .hero .in{position:relative;z-index:2;padding:120px 24px 80px;text-align:center;margin:0 auto}
 .hero h1{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:clamp(46px,10vw,120px);line-height:.92}
-.hero h1 em{font-style:normal;color:var(--pink);text-shadow:0 0 50px var(--glow)}
+.hero h1 em{font-style:normal;color:#fff;text-shadow:0 4px 30px rgba(0,0,0,.5)}
 .hero p{font-size:clamp(17px,2.2vw,24px);color:#e7e3f3;margin:20px 0 30px}
 
 /* concept */
@@ -156,7 +158,7 @@ a{color:inherit;text-decoration:none}
       <a href="#prog">Réservations</a>
       <a href="#groupes">Groupes</a>
       <a href="#footer">Contact</a>
-      <a href="#prog" class="btn btn--pink">Réserver</a>
+      <a href="#prog" class="resa">Réserver</a>
     </nav>
     <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
   </div>
