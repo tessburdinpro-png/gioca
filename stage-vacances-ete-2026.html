@@ -1,0 +1,293 @@
+<!-- ============================================================
+     GIOCÀ BASTIA — Article blog "Stage Vacances Été 2026"
+     À coller dans un widget HTML d'Elementor.
+     Tout est scopé sous #gioca-stage : aucun risque de casser le thème.
+     Pour changer les couleurs : modifie les variables --gs-* ci-dessous.
+     ============================================================ -->
+<div id="gioca-stage">
+  <style>
+    #gioca-stage{
+      --gs-orange:#FF6B35;
+      --gs-orange-dark:#E2531F;
+      --gs-teal:#0AA8A0;
+      --gs-teal-dark:#0a8c85;
+      --gs-yellow:#FFC93C;
+      --gs-ink:#1f2a44;
+      --gs-muted:#5b667c;
+      --gs-cream:#FFF7ED;
+      --gs-card:#ffffff;
+      --gs-radius:18px;
+      --gs-shadow:0 12px 30px rgba(31,42,68,.10);
+      font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+      color:var(--gs-ink);
+      line-height:1.6;
+      max-width:1080px;
+      margin:0 auto;
+      padding:8px;
+      -webkit-font-smoothing:antialiased;
+    }
+    #gioca-stage *{box-sizing:border-box;}
+    #gioca-stage p{margin:0 0 14px;color:var(--gs-muted);font-size:17px;}
+    #gioca-stage h2{font-size:30px;line-height:1.2;margin:0 0 6px;color:var(--gs-ink);font-weight:800;}
+    #gioca-stage h3{font-size:20px;margin:0 0 8px;color:var(--gs-ink);font-weight:800;}
+    #gioca-stage .gs-section{margin:46px 0;}
+    #gioca-stage .gs-center{text-align:center;}
+    #gioca-stage .gs-kicker{
+      display:inline-block;text-transform:uppercase;letter-spacing:1.5px;
+      font-size:13px;font-weight:800;color:var(--gs-teal-dark);margin-bottom:10px;
+    }
+
+    /* HERO */
+    #gioca-stage .gs-hero{
+      position:relative;overflow:hidden;border-radius:26px;
+      background:linear-gradient(135deg,var(--gs-orange) 0%,#ff8a5b 45%,var(--gs-yellow) 120%);
+      color:#fff;padding:54px 32px;text-align:center;box-shadow:var(--gs-shadow);
+    }
+    #gioca-stage .gs-hero:before,#gioca-stage .gs-hero:after{
+      content:"";position:absolute;border-radius:50%;background:rgba(255,255,255,.13);
+    }
+    #gioca-stage .gs-hero:before{width:240px;height:240px;top:-90px;right:-60px;}
+    #gioca-stage .gs-hero:after{width:180px;height:180px;bottom:-80px;left:-50px;}
+    #gioca-stage .gs-hero .gs-badge{
+      position:relative;display:inline-block;background:rgba(255,255,255,.22);
+      border:1px solid rgba(255,255,255,.5);backdrop-filter:blur(4px);
+      padding:8px 18px;border-radius:999px;font-weight:700;font-size:14px;letter-spacing:1px;text-transform:uppercase;
+    }
+    #gioca-stage .gs-hero h1{
+      position:relative;font-size:52px;line-height:1.05;margin:18px 0 6px;font-weight:900;
+      text-shadow:0 4px 18px rgba(0,0,0,.15);
+    }
+    #gioca-stage .gs-hero .gs-dates{position:relative;font-size:22px;font-weight:700;margin-bottom:22px;}
+    #gioca-stage .gs-pills{position:relative;display:flex;flex-wrap:wrap;gap:10px;justify-content:center;margin-bottom:26px;}
+    #gioca-stage .gs-pill{
+      background:rgba(255,255,255,.95);color:var(--gs-ink);font-weight:700;font-size:15px;
+      padding:9px 16px;border-radius:999px;box-shadow:0 4px 12px rgba(0,0,0,.10);
+    }
+    #gioca-stage .gs-cta{position:relative;display:flex;flex-wrap:wrap;gap:14px;justify-content:center;}
+    #gioca-stage .gs-btn{
+      display:inline-block;text-decoration:none;font-weight:800;font-size:17px;
+      padding:15px 30px;border-radius:999px;transition:transform .15s ease,box-shadow .15s ease;
+    }
+    #gioca-stage .gs-btn:hover{transform:translateY(-2px);}
+    #gioca-stage .gs-btn-primary{background:var(--gs-ink);color:#fff;box-shadow:0 8px 20px rgba(31,42,68,.35);}
+    #gioca-stage .gs-btn-ghost{background:#fff;color:var(--gs-orange-dark);box-shadow:0 8px 20px rgba(0,0,0,.12);}
+
+    /* INFO CARDS */
+    #gioca-stage .gs-grid{display:grid;gap:18px;}
+    #gioca-stage .gs-grid-4{grid-template-columns:repeat(4,1fr);}
+    #gioca-stage .gs-grid-3{grid-template-columns:repeat(3,1fr);}
+    #gioca-stage .gs-grid-2{grid-template-columns:repeat(2,1fr);}
+    #gioca-stage .gs-info{
+      background:var(--gs-card);border-radius:var(--gs-radius);padding:22px 18px;text-align:center;
+      box-shadow:var(--gs-shadow);border:1px solid #f0e9df;
+    }
+    #gioca-stage .gs-info .gs-ico{font-size:34px;display:block;margin-bottom:8px;}
+    #gioca-stage .gs-info .gs-lbl{font-size:13px;text-transform:uppercase;letter-spacing:.5px;color:var(--gs-teal-dark);font-weight:800;margin-bottom:4px;}
+    #gioca-stage .gs-info .gs-val{font-size:18px;font-weight:800;color:var(--gs-ink);}
+
+    /* PROGRAMME / activités */
+    #gioca-stage .gs-feat{
+      background:var(--gs-card);border-radius:var(--gs-radius);padding:20px;
+      box-shadow:var(--gs-shadow);border:1px solid #f0e9df;display:flex;gap:14px;align-items:flex-start;
+    }
+    #gioca-stage .gs-feat .gs-ico{font-size:30px;line-height:1;flex:0 0 auto;}
+    #gioca-stage .gs-feat h3{font-size:18px;margin:0 0 2px;}
+    #gioca-stage .gs-feat p{margin:0;font-size:15px;}
+
+    /* TIMELINE journée type */
+    #gioca-stage .gs-timeline{background:var(--gs-cream);border-radius:22px;padding:28px;border:1px solid #f0e4d4;}
+    #gioca-stage .gs-tl-item{display:flex;gap:16px;padding:12px 0;border-bottom:1px dashed #e7d8c4;}
+    #gioca-stage .gs-tl-item:last-child{border-bottom:none;}
+    #gioca-stage .gs-tl-time{
+      flex:0 0 78px;font-weight:900;color:var(--gs-orange-dark);font-size:16px;
+      background:#fff;border-radius:12px;padding:8px 6px;text-align:center;height:fit-content;box-shadow:0 4px 10px rgba(0,0,0,.05);
+    }
+    #gioca-stage .gs-tl-txt{padding-top:4px;}
+    #gioca-stage .gs-tl-txt strong{color:var(--gs-ink);display:block;font-size:16px;}
+    #gioca-stage .gs-tl-txt span{color:var(--gs-muted);font-size:15px;}
+
+    /* THEMES semaines */
+    #gioca-stage .gs-week-title{
+      display:flex;align-items:center;gap:12px;margin:0 0 16px;font-weight:900;font-size:21px;color:var(--gs-ink);
+    }
+    #gioca-stage .gs-week-title .gs-tag{
+      background:var(--gs-teal);color:#fff;font-size:13px;font-weight:800;padding:6px 12px;border-radius:999px;letter-spacing:.5px;
+    }
+    #gioca-stage .gs-theme{
+      background:var(--gs-card);border-radius:16px;padding:18px;box-shadow:var(--gs-shadow);
+      border:1px solid #f0e9df;border-top:5px solid var(--gs-orange);text-align:center;
+    }
+    #gioca-stage .gs-theme .gs-day{font-size:12px;text-transform:uppercase;letter-spacing:1px;color:var(--gs-teal-dark);font-weight:800;}
+    #gioca-stage .gs-theme .gs-emoji{font-size:30px;display:block;margin:6px 0;}
+    #gioca-stage .gs-theme .gs-name{font-weight:900;font-size:16px;color:var(--gs-ink);line-height:1.2;}
+    #gioca-stage .gs-grid-5{grid-template-columns:repeat(5,1fr);}
+
+    /* TARIFS */
+    #gioca-stage .gs-price{
+      background:var(--gs-card);border-radius:var(--gs-radius);padding:26px 18px;text-align:center;
+      box-shadow:var(--gs-shadow);border:1px solid #f0e9df;position:relative;
+    }
+    #gioca-stage .gs-price.gs-best{border:2px solid var(--gs-orange);box-shadow:0 16px 36px rgba(255,107,53,.20);}
+    #gioca-stage .gs-price .gs-ribbon{
+      position:absolute;top:-13px;left:50%;transform:translateX(-50%);
+      background:var(--gs-orange);color:#fff;font-size:12px;font-weight:800;padding:5px 14px;border-radius:999px;text-transform:uppercase;letter-spacing:.5px;white-space:nowrap;
+    }
+    #gioca-stage .gs-price .gs-amount{font-size:40px;font-weight:900;color:var(--gs-orange-dark);line-height:1;}
+    #gioca-stage .gs-price .gs-amount small{font-size:18px;}
+    #gioca-stage .gs-price .gs-unit{font-size:15px;color:var(--gs-muted);font-weight:700;margin-top:6px;}
+
+    /* CTA final */
+    #gioca-stage .gs-final{
+      background:linear-gradient(135deg,var(--gs-teal) 0%,var(--gs-teal-dark) 100%);
+      color:#fff;border-radius:26px;padding:44px 30px;text-align:center;box-shadow:var(--gs-shadow);
+    }
+    #gioca-stage .gs-final h2{color:#fff;}
+    #gioca-stage .gs-final p{color:rgba(255,255,255,.92);}
+    #gioca-stage .gs-final .gs-phone{
+      display:inline-block;font-size:26px;font-weight:900;color:#fff;text-decoration:none;
+      background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.45);
+      padding:12px 26px;border-radius:999px;margin-top:6px;
+    }
+    #gioca-stage .gs-note{font-size:14px;color:var(--gs-muted);text-align:center;margin-top:14px;}
+
+    /* RESPONSIVE */
+    @media(max-width:880px){
+      #gioca-stage .gs-grid-4{grid-template-columns:repeat(2,1fr);}
+      #gioca-stage .gs-grid-3{grid-template-columns:repeat(2,1fr);}
+      #gioca-stage .gs-grid-5{grid-template-columns:repeat(2,1fr);}
+      #gioca-stage .gs-hero h1{font-size:38px;}
+      #gioca-stage .gs-hero .gs-dates{font-size:19px;}
+      #gioca-stage h2{font-size:25px;}
+    }
+    @media(max-width:520px){
+      #gioca-stage .gs-grid-4,#gioca-stage .gs-grid-3,#gioca-stage .gs-grid-2,#gioca-stage .gs-grid-5{grid-template-columns:1fr;}
+      #gioca-stage .gs-hero{padding:40px 20px;}
+      #gioca-stage .gs-hero h1{font-size:32px;}
+      #gioca-stage .gs-btn{width:100%;text-align:center;}
+    }
+  </style>
+
+  <!-- ============ HERO ============ -->
+  <div class="gs-hero">
+    <span class="gs-badge">☀️ Stage Vacances · Été 2026</span>
+    <h1>Le stage des vacances pour les 6-11 ans à Bastia&nbsp;!</h1>
+    <div class="gs-dates">📅 Du 13 au 24 juillet 2026</div>
+    <div class="gs-pills">
+      <span class="gs-pill">⏰ 9h → 16h30</span>
+      <span class="gs-pill">👦 6 à 11 ans</span>
+      <span class="gs-pill">🗓️ Hors week-ends</span>
+      <span class="gs-pill">📍 Chez Giocà Bastia</span>
+    </div>
+    <div class="gs-cta">
+      <a class="gs-btn gs-btn-primary" href="tel:0495463687">📞 Réserver au 04 95 46 36 87</a>
+      <a class="gs-btn gs-btn-ghost" href="#inscription">✏️ Inscription en ligne</a>
+    </div>
+  </div>
+
+  <!-- ============ INTRO ============ -->
+  <div class="gs-section gs-center">
+    <span class="gs-kicker">Les vacances arrivent…</span>
+    <h2>On s'occupe de vos enfants&nbsp;!</h2>
+    <p>Vous cherchez une activité pour occuper vos enfants à Bastia cet été&nbsp;? Pendant les vacances scolaires,
+    <strong>Giocà Bastia</strong> organise un stage loisirs pour les enfants de 6 à 11 ans, rempli d'activités ludiques,
+    créatives et de moments à partager. Chaque journée est rythmée par des jeux, des défis, des ateliers et de bons
+    repas — le tout dans un cadre sécurisé et encadré.</p>
+  </div>
+
+  <!-- ============ EN BREF ============ -->
+  <div class="gs-section">
+    <div class="gs-grid gs-grid-4">
+      <div class="gs-info"><span class="gs-ico">📅</span><div class="gs-lbl">Dates</div><div class="gs-val">13 → 24 juillet</div></div>
+      <div class="gs-info"><span class="gs-ico">⏰</span><div class="gs-lbl">Horaires</div><div class="gs-val">9h – 16h30</div></div>
+      <div class="gs-info"><span class="gs-ico">👦</span><div class="gs-lbl">Âge</div><div class="gs-val">6 à 11 ans</div></div>
+      <div class="gs-info"><span class="gs-ico">📍</span><div class="gs-lbl">Lieu</div><div class="gs-val">Giocà Bastia</div></div>
+    </div>
+  </div>
+
+  <!-- ============ AU PROGRAMME ============ -->
+  <div class="gs-section">
+    <div class="gs-center" style="margin-bottom:24px;">
+      <span class="gs-kicker">Au programme</span>
+      <h2>Des journées 100% fun 🎮</h2>
+      <p>Chaque jour, on alterne énergie, créativité et gourmandise.</p>
+    </div>
+    <div class="gs-grid gs-grid-3">
+      <div class="gs-feat"><span class="gs-ico">🤸</span><div><h3>Les Défis Giocà</h3><p>Light Jumper, Laser Game BombSquad et activités choisies selon les envies des enfants.</p></div></div>
+      <div class="gs-feat"><span class="gs-ico">🏆</span><div><h3>Thème du jour</h3><p>Chasse au trésor, Koh Lanta, Top Chef, Jeux Olympiques… un univers différent chaque jour&nbsp;!</p></div></div>
+      <div class="gs-feat"><span class="gs-ico">🎨</span><div><h3>Ateliers créatifs ENSPORTS</h3><p>Casquettes, tote bags et créations personnalisées à rapporter à la maison.</p></div></div>
+      <div class="gs-feat"><span class="gs-ico">🥐</span><div><h3>Atelier boulangerie BECAM</h3><p>Viennoiseries, cookies, brioches… les enfants mettent la main à la pâte.</p></div></div>
+      <div class="gs-feat"><span class="gs-ico">⚽</span><div><h3>Jeux en plein air & société</h3><p>Pour se dépenser, jouer en équipe et profiter de l'été.</p></div></div>
+      <div class="gs-feat"><span class="gs-ico">🍽️</span><div><h3>Repas inclus</h3><p>Petit-déjeuner et déjeuner équilibrés préparés chaque jour pour les enfants.</p></div></div>
+    </div>
+  </div>
+
+  <!-- ============ JOURNÉE TYPE ============ -->
+  <div class="gs-section">
+    <div class="gs-center" style="margin-bottom:24px;">
+      <span class="gs-kicker">Une journée type</span>
+      <h2>À quoi ressemble une journée&nbsp;?</h2>
+    </div>
+    <div class="gs-timeline">
+      <div class="gs-tl-item"><div class="gs-tl-time">9h</div><div class="gs-tl-txt"><strong>Petit-déjeuner</strong><span>Jus de fruits, viennoiseries & fruits.</span></div></div>
+      <div class="gs-tl-item"><div class="gs-tl-time">9h30</div><div class="gs-tl-txt"><strong>Les Défis Giocà</strong><span>Light Jumper, Laser Game… selon les envies des enfants.</span></div></div>
+      <div class="gs-tl-item"><div class="gs-tl-time">10h30</div><div class="gs-tl-txt"><strong>Activité du thème</strong><span>L'aventure du jour démarre&nbsp;!</span></div></div>
+      <div class="gs-tl-item"><div class="gs-tl-time">Midi</div><div class="gs-tl-txt"><strong>Pause déjeuner</strong><span>Un repas complet préparé pour les enfants.</span></div></div>
+      <div class="gs-tl-item"><div class="gs-tl-time">13h</div><div class="gs-tl-txt"><strong>Jeux en plein air & jeux de société</strong><span>Place à la détente et au jeu.</span></div></div>
+      <div class="gs-tl-item"><div class="gs-tl-time">14h</div><div class="gs-tl-txt"><strong>Atelier du jour</strong><span>Atelier créatif ou boulangerie selon le thème.</span></div></div>
+      <div class="gs-tl-item"><div class="gs-tl-time">15h</div><div class="gs-tl-txt"><strong>Les Défis Giocà</strong><span>Encore un peu d'énergie à dépenser&nbsp;!</span></div></div>
+      <div class="gs-tl-item"><div class="gs-tl-time">16h30</div><div class="gs-tl-txt"><strong>Clôture & remise</strong><span>Médailles, diplômes, créations… départ.</span></div></div>
+    </div>
+  </div>
+
+  <!-- ============ THÈMES SEMAINE 1 ============ -->
+  <div class="gs-section">
+    <div class="gs-center" style="margin-bottom:24px;">
+      <span class="gs-kicker">Les thèmes</span>
+      <h2>Un univers différent chaque jour 🌟</h2>
+    </div>
+
+    <div class="gs-week-title"><span class="gs-tag">Semaine 1</span> Du 13 au 17 juillet</div>
+    <div class="gs-grid gs-grid-5">
+      <div class="gs-theme"><div class="gs-day">Lundi 13</div><span class="gs-emoji">🗺️</span><div class="gs-name">Chasse au trésor</div></div>
+      <div class="gs-theme"><div class="gs-day">Mardi 14</div><span class="gs-emoji">🎨</span><div class="gs-name">Les Créateurs</div></div>
+      <div class="gs-theme"><div class="gs-day">Mercredi 15</div><span class="gs-emoji">🏅</span><div class="gs-name">Jeux Olympiques</div></div>
+      <div class="gs-theme"><div class="gs-day">Jeudi 16</div><span class="gs-emoji">👨‍🍳</span><div class="gs-name">Top Chef</div></div>
+      <div class="gs-theme"><div class="gs-day">Vendredi 17</div><span class="gs-emoji">🌴</span><div class="gs-name">Koh Lanta</div></div>
+    </div>
+
+    <div class="gs-week-title" style="margin-top:30px;"><span class="gs-tag">Semaine 2</span> Du 20 au 24 juillet</div>
+    <div class="gs-grid gs-grid-5">
+      <div class="gs-theme"><div class="gs-day">Lundi 20</div><span class="gs-emoji">🌴</span><div class="gs-name">Koh Lanta</div></div>
+      <div class="gs-theme"><div class="gs-day">Mardi 21</div><span class="gs-emoji">🔎</span><div class="gs-name">Les Enquêteurs</div></div>
+      <div class="gs-theme"><div class="gs-day">Mercredi 22</div><span class="gs-emoji">🎨</span><div class="gs-name">Les Créateurs</div></div>
+      <div class="gs-theme"><div class="gs-day">Jeudi 23</div><span class="gs-emoji">🍕</span><div class="gs-name">Top Chef</div></div>
+      <div class="gs-theme"><div class="gs-day">Vendredi 24</div><span class="gs-emoji">🎡</span><div class="gs-name">Fête Foraine</div></div>
+    </div>
+  </div>
+
+  <!-- ============ TARIFS ============ -->
+  <div class="gs-section" id="inscription">
+    <div class="gs-center" style="margin-bottom:24px;">
+      <span class="gs-kicker">Tarifs</span>
+      <h2>Choisissez votre formule 🎟️</h2>
+      <p>Plus vous réservez de jours, plus c'est avantageux&nbsp;!</p>
+    </div>
+    <div class="gs-grid gs-grid-4">
+      <div class="gs-price"><div class="gs-amount">49<small>€</small></div><div class="gs-unit">la journée</div></div>
+      <div class="gs-price"><div class="gs-amount">135<small>€</small></div><div class="gs-unit">les 3 jours</div></div>
+      <div class="gs-price"><div class="gs-amount">170<small>€</small></div><div class="gs-unit">les 4 jours</div></div>
+      <div class="gs-price gs-best"><span class="gs-ribbon">⭐ Le + avantageux</span><div class="gs-amount">185<small>€</small></div><div class="gs-unit">les 5 jours</div></div>
+    </div>
+    <p class="gs-note">Places limitées — pensez à réserver à l'avance&nbsp;!</p>
+  </div>
+
+  <!-- ============ CTA FINAL ============ -->
+  <div class="gs-section gs-final">
+    <h2>Inscrivez votre enfant dès maintenant&nbsp;!</h2>
+    <p>On a hâte d'accueillir vos enfants pour des vacances pleines de jeux, de découvertes et de bonne humeur. 🌈</p>
+    <a class="gs-phone" href="tel:0495463687">📞 04 95 46 36 87</a>
+    <p style="margin-top:16px;">Ou passez nous voir directement chez <strong>Giocà Bastia</strong>.</p>
+  </div>
+
+</div>
+<!-- ============ FIN — Stage Vacances Été 2026 ============ -->
