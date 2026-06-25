@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Giocà Bastia — Vivez une expérience unique</title>
+<meta name="description" content="Giocà Bastia : centre de jeux unique. Action Game, Laser Game, Karaoké Box, fléchettes interactives, Shuffle Board & Spritzeria. Entre amis, en famille ou pour vos événements." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+<style>
+:root{--pink:#ED0B76;--pink-2:#ff4da6;--glow:rgba(237,11,118,.55);--bg:#080610;--bg2:#0f0b1a;--card:#15121f;--line:rgba(255,255,255,.10);--muted:#aaa3c4}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Inter',system-ui,sans-serif;background:var(--bg);color:#fff;line-height:1.6;overflow-x:hidden}
+a{color:inherit;text-decoration:none}
+.container{max-width:1180px;margin:0 auto;padding:0 24px}
+.kicker{display:inline-block;color:var(--pink-2);font-weight:800;letter-spacing:2px;text-transform:uppercase;font-size:13px;margin-bottom:12px}
+.title{font-family:'Anton',sans-serif;font-weight:400;text-transform:uppercase;font-size:clamp(30px,5vw,58px);letter-spacing:.5px}
+.hl{color:var(--pink)}
+.btn{display:inline-block;font-weight:800;font-size:15px;padding:14px 28px;border-radius:999px;border:2px solid transparent;cursor:pointer;transition:transform .18s,box-shadow .18s}
+.btn--pink{background:var(--pink);color:#fff;box-shadow:0 10px 30px -8px var(--glow)}
+.btn--pink:hover{transform:translateY(-3px)}
+.btn--glass{background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.3);color:#fff;backdrop-filter:blur(8px)}
+.btn--lg{padding:17px 36px;font-size:17px}
+
+/* header */
+.header{position:fixed;inset:0 0 auto 0;z-index:100;transition:.3s}
+.header.scrolled{background:rgba(8,6,16,.85);backdrop-filter:blur(14px);border-bottom:1px solid var(--line)}
+.hd{display:flex;align-items:center;justify-content:space-between;height:74px}
+.logo{font-family:'Anton',sans-serif;font-size:29px;font-style:italic;letter-spacing:1px}
+.logo span{color:var(--pink)}
+.nav{display:flex;align-items:center;gap:28px}
+.nav a{font-weight:600;font-size:15px;color:#efedf7}
+.nav a:hover{color:var(--pink-2)}
+.burger{display:none;flex-direction:column;gap:5px;background:none;border:0;cursor:pointer}
+.burger span{width:26px;height:3px;background:#fff;border-radius:3px;transition:.3s}
+
+/* hero */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;overflow:hidden;background:#0a0712}
+.hero video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.hero .ov{position:absolute;inset:0;z-index:1;background:radial-gradient(1000px 600px at 72% 25%,rgba(237,11,118,.32),transparent 60%),linear-gradient(180deg,rgba(8,6,16,.5),rgba(8,6,16,.92))}
+.hero .in{position:relative;z-index:2;padding:120px 24px 80px;text-align:center;margin:0 auto}
+.hero h1{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:clamp(46px,10vw,120px);line-height:.92}
+.hero h1 em{font-style:normal;color:var(--pink);text-shadow:0 0 50px var(--glow)}
+.hero p{font-size:clamp(17px,2.2vw,24px);color:#e7e3f3;margin:20px 0 30px}
+
+/* concept */
+.concept{padding:96px 0}
+.concept__grid{display:grid;grid-template-columns:1.05fr .95fr;gap:46px;align-items:center}
+.concept p{color:var(--muted);font-size:18px;margin:16px 0 22px}
+.collage{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:12px;height:380px}
+.collage div{border-radius:16px;background-size:cover;background-position:center;border:1px solid var(--line)}
+.collage div:first-child{grid-row:1/3}
+
+/* fidélité */
+.fid{padding:80px 0;background:linear-gradient(120deg,var(--pink),#a30a6e)}
+.fid__in{display:grid;grid-template-columns:1.1fr .9fr;gap:46px;align-items:center}
+.fid h2{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:clamp(28px,4.4vw,48px);margin-bottom:12px}
+.fid p{color:rgba(255,255,255,.92);font-size:18px;max-width:520px}
+.lcard{background:linear-gradient(135deg,#0a0910,#211c33);border-radius:20px;padding:28px;aspect-ratio:1.6;max-width:420px;margin-left:auto;display:flex;flex-direction:column;justify-content:space-between;border:1px solid rgba(255,255,255,.12);box-shadow:0 30px 60px -20px rgba(0,0,0,.6)}
+.lcard .t{font-weight:700;letter-spacing:3px;font-size:15px}
+.lcard .t span{font-family:'Anton',sans-serif;color:var(--pink-2);font-size:22px}
+.lcard .chip{width:54px;height:40px;border-radius:8px;background:linear-gradient(135deg,#ffd479,#c98a16)}
+.lcard .nm{font-weight:800;letter-spacing:2px;color:var(--pink-2)}
+
+/* spot games 3 cols */
+.spot{padding:96px 0;text-align:center}
+.cols{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:48px}
+.col{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:34px 26px;transition:.25s}
+.col:hover{transform:translateY(-6px);border-color:var(--pink)}
+.col .ic{font-size:40px;margin-bottom:10px}
+.col h3{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:24px;letter-spacing:.5px;margin-bottom:10px;color:var(--pink-2)}
+.col p{color:var(--muted);font-size:16px}
+
+/* actus row */
+.actus{padding:0 0 96px}
+.actus__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.acard{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:26px;transition:.25s}
+.acard:hover{transform:translateY(-6px);border-color:var(--pink)}
+.acard .tag{font-size:12px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:var(--pink-2)}
+.acard h3{font-size:22px;font-weight:800;margin:8px 0 6px}
+.acard p{color:var(--muted);font-size:15px}
+
+/* jeux */
+.jeux{padding:96px 0;background:var(--bg2)}
+.jeux__head{text-align:center;max-width:820px;margin:0 auto 50px}
+.jeux__head h2{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:clamp(30px,5.5vw,64px);line-height:.96}
+.jeux__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.jcard{position:relative;height:360px;border-radius:18px;overflow:hidden;border:1px solid var(--line);isolation:isolate}
+.jcard .bg{position:absolute;inset:0;background-image:var(--img),linear-gradient(155deg,#3a1846,#1a1330);background-size:cover;background-position:center;background-color:#211633;transition:transform .6s;z-index:-2}
+.jcard::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(180deg,rgba(8,6,16,.1),rgba(8,6,16,.55) 55%,rgba(8,6,16,.96))}
+.jcard:hover .bg{transform:scale(1.08)}
+.jcard .c{position:absolute;inset:auto 0 0 0;padding:26px}
+.jcard .tag{display:inline-block;font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;color:#fff;background:var(--pink);padding:6px 12px;border-radius:999px;margin-bottom:12px}
+.jcard h3{font-size:26px;font-weight:800;margin-bottom:6px}
+.jcard p{color:#d8d3ea;font-size:14px}
+
+/* marquee spritz */
+.smarq{background:var(--pink);overflow:hidden;padding:16px 0;white-space:nowrap}
+.smarq .tr{display:inline-flex;animation:scroll 22s linear infinite}
+.smarq .tr span{font-family:'Anton',sans-serif;font-size:26px;letter-spacing:2px;text-transform:uppercase}
+@keyframes scroll{to{transform:translateX(-50%)}}
+
+/* programmation */
+.prog{position:relative;padding:110px 0;text-align:center;overflow:hidden}
+.prog__bg{position:absolute;inset:0;font-family:'Anton',sans-serif;font-size:clamp(60px,16vw,220px);color:rgba(255,255,255,.04);white-space:nowrap;text-transform:uppercase;top:50%;left:50%;transform:translate(-50%,-50%);z-index:0;pointer-events:none}
+.prog__card{position:relative;z-index:2;max-width:760px;margin:0 auto;background:linear-gradient(160deg,#1c1430,#2a1030);border:1px solid rgba(237,11,118,.35);border-radius:24px;padding:46px 36px}
+.prog__card .tag{display:inline-block;background:var(--pink);color:#fff;font-weight:800;font-size:12px;letter-spacing:1px;text-transform:uppercase;padding:6px 14px;border-radius:999px;margin-bottom:16px}
+.prog__card h2{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:clamp(30px,5vw,54px);margin-bottom:12px}
+.prog__card p{color:#d8d3ea;font-size:18px;margin-bottom:18px}
+.prog__meta{font-weight:800;color:var(--pink-2);font-size:18px;margin-bottom:22px}
+
+/* footer */
+.footer{background:var(--bg2);border-top:1px solid var(--line);padding:70px 0 30px}
+.footer h2{font-family:'Anton',sans-serif;text-transform:uppercase;font-size:clamp(26px,4vw,44px);margin-bottom:26px}
+.socials{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:40px}
+.socials a{background:rgba(255,255,255,.07);border:1px solid var(--line);padding:12px 20px;border-radius:999px;font-weight:700}
+.socials a:hover{border-color:var(--pink);color:var(--pink-2)}
+.fgrid{display:grid;grid-template-columns:1.4fr .8fr;gap:40px;padding-bottom:36px;border-bottom:1px solid var(--line)}
+.news h4{font-size:18px;margin-bottom:10px}
+.news p{color:var(--muted);margin-bottom:14px}
+.nlf{display:flex;gap:10px;max-width:480px}
+.nlf input{flex:1;background:#181527;border:1px solid var(--line);border-radius:999px;padding:14px 18px;color:#fff}
+.opt{display:flex;gap:8px;align-items:center;color:var(--muted);font-size:13px;margin-top:12px}
+.flinks{display:flex;flex-direction:column;gap:10px}
+.flinks a{color:#cfcae0}.flinks a:hover{color:var(--pink-2)}
+.fbot{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;padding-top:22px;color:var(--muted);font-size:14px}
+
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .8s,transform .8s}
+.reveal.in{opacity:1;transform:none}
+
+@media(max-width:920px){
+  .concept__grid,.fid__in,.fgrid{grid-template-columns:1fr}
+  .cols,.actus__grid,.jeux__grid{grid-template-columns:1fr 1fr}
+  .collage{height:300px}
+}
+@media(max-width:640px){
+  .nav{position:fixed;top:74px;right:0;height:calc(100vh - 74px);width:78%;max-width:320px;background:rgba(11,9,22,.98);backdrop-filter:blur(14px);flex-direction:column;align-items:flex-start;padding:30px 26px;gap:20px;transform:translateX(100%);transition:.35s;border-left:1px solid var(--line)}
+  .nav.open{transform:none}.nav a{font-size:18px}.burger{display:flex}
+  .burger.open span:nth-child(1){transform:translateY(8px) rotate(45deg)}
+  .burger.open span:nth-child(2){opacity:0}
+  .burger.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg)}
+  .cols,.actus__grid,.jeux__grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<header class="header" id="header">
+  <div class="container hd">
+    <a href="#accueil" class="logo">GIOC<span>À</span></a>
+    <nav class="nav" id="nav">
+      <a href="#accueil">Accueil</a>
+      <a href="#activites">Activités</a>
+      <a href="#prog">Réservations</a>
+      <a href="#groupes">Groupes</a>
+      <a href="#footer">Contact</a>
+      <a href="#prog" class="btn btn--pink">Réserver</a>
+    </nav>
+    <button class="burger" id="burger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="accueil">
+  <video autoplay muted loop playsinline poster="assets/poster.jpg"><source src="assets/gioca.mp4" type="video/mp4" /></video>
+  <div class="ov"></div>
+  <div class="container in">
+    <h1>Vivez une<br><em>expérience unique.</em></h1>
+    <p>Le nouveau rendez-vous du divertissement à Bastia&nbsp;!</p>
+    <a href="#prog" class="btn btn--pink btn--lg">Réserver maintenant</a>
+  </div>
+</section>
+
+<!-- CONCEPT -->
+<section class="concept" id="activites">
+  <div class="container concept__grid">
+    <div class="reveal">
+      <span class="kicker">Le concept</span>
+      <h2 class="title">Le nouveau rendez-vous du divertissement à Bastia</h2>
+      <p>Découvrez un centre de jeux unique où fun et sensations se rencontrent. Vivez des expériences immersives&nbsp;: Action Game, Laser Game, Karaoké Box, fléchettes interactives et bien d'autres activités. Le lieu parfait pour s'amuser entre amis, en famille ou pour organiser vos événements&nbsp;: team building, séminaire d'entreprise, anniversaire, EVJF/EVG.</p>
+      <a href="#jeux" class="btn btn--pink">Activités</a>
+    </div>
+    <div class="collage reveal">
+      <div style="background-image:url('assets/f1.jpg')"></div>
+      <div style="background-image:url('assets/f2.jpg')"></div>
+      <div style="background-image:url('assets/f4.jpg')"></div>
+    </div>
+  </div>
+</section>
+
+<!-- FIDÉLITÉ -->
+<section class="fid">
+  <div class="container fid__in reveal">
+    <div>
+      <span class="kicker" style="color:#2a0a1a">Giocà Fidélité</span>
+      <h2>Récupère ta carte de fidélité</h2>
+      <p>Grâce à ta carte Giocà Fidélité, bénéficie de nos offres spéciales toute l'année. Récupère-la directement auprès de nos Games Masters sur place&nbsp;!</p>
+    </div>
+    <div class="lcard">
+      <div class="t"><span>GIOCÀ</span> FIDÉLITÉ</div>
+      <div class="chip"></div>
+      <div class="nm">★ MEMBRE GIOCÀ</div>
+    </div>
+  </div>
+</section>
+
+<!-- SPOT GAMES 3 COLS -->
+<section class="spot">
+  <div class="container">
+    <span class="kicker reveal">Ton spot games préféré</span>
+    <h2 class="title reveal">Toujours plus de fun</h2>
+    <div class="cols">
+      <div class="col reveal"><div class="ic">✨</div><h3>Expériences inédites</h3><p>Partagez des moments avec vos amis, votre famille ou vos collègues et créez des souvenirs mémorables.</p></div>
+      <div class="col reveal"><div class="ic">👨‍👩‍👧‍👦</div><h3>Pour tous les âges</h3><p>Des expériences pour toutes les générations, du plaisir partagé aux défis les plus stimulants.</p></div>
+      <div class="col reveal"><div class="ic">🚀</div><h3>Toujours plus</h3><p>Une multitude d'activités&nbsp;: jouez, découvrez et prolongez le plaisir autant que vous le souhaitez&nbsp;!</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ACTUS -->
+<section class="actus">
+  <div class="container actus__grid">
+    <div class="acard reveal"><span class="tag">Actus</span><h3>On recrute&nbsp;!</h3><p>Rejoins l'équipe Giocà et deviens Game Master. Passion du jeu et bonne humeur exigées.</p></div>
+    <div class="acard reveal"><span class="tag">Actus</span><h3>Soirée illimitée</h3><p>Jeux en illimité le jeudi soir chez Giocà Furiani. L'ambiance au maximum&nbsp;!</p></div>
+    <div class="acard reveal"><span class="tag">Actus</span><h3>Coupe du Monde</h3><p>Tous les matchs sur grand écran, selon nos horaires, sur plusieurs écrans en simultané.</p></div>
+  </div>
+</section>
+
+<!-- JEUX -->
+<section class="jeux" id="jeux">
+  <div class="container">
+    <div class="jeux__head reveal">
+      <span class="kicker">Jeux</span>
+      <h2>Jouer et s'amuser, à tout âge.<br><span class="hl">Maintenant, c'est à toi de jouer&nbsp;!</span></h2>
+    </div>
+    <div class="jeux__grid">
+      <article class="jcard reveal" style="--img:url('assets/f3.jpg')"><div class="bg"></div><div class="c"><span class="tag">Adresse · by HUN</span><h3>Shuffle Board</h3><p>Un jeu traditionnel revisité, pour une expérience atypique. Le mythe d'outre-Manche qui fait un carton&nbsp;!</p></div></article>
+      <article class="jcard reveal" style="--img:url('assets/f1.jpg')"><div class="bg"></div><div class="c"><span class="tag">Action en équipe</span><h3>BombSquad</h3><p>Le laser game nouvelle génération&nbsp;: missions, adrénaline et fous rires garantis.</p></div></article>
+      <article class="jcard reveal" style="--img:url('assets/f2.jpg')"><div class="bg"></div><div class="c"><span class="tag">Immersif</span><h3>Laser Game</h3><p>Affrontez-vous dans une arène immersive. Visez juste, jouez collectif, dominez&nbsp;!</p></div></article>
+    </div>
+  </div>
+</section>
+
+<!-- SPRITZERIA MARQUEE -->
+<div class="smarq">
+  <div class="tr">
+    <span>SPRITZERIA · DRINKS &amp; FOOD ✦ SPRITZERIA · DRINKS &amp; FOOD ✦ SPRITZERIA · DRINKS &amp; FOOD ✦&nbsp;</span>
+    <span>SPRITZERIA · DRINKS &amp; FOOD ✦ SPRITZERIA · DRINKS &amp; FOOD ✦ SPRITZERIA · DRINKS &amp; FOOD ✦&nbsp;</span>
+  </div>
+</div>
+
+<!-- PROGRAMMATION -->
+<section class="prog" id="prog">
+  <div class="prog__bg">PROGRAMMATION</div>
+  <div class="container">
+    <div class="prog__card reveal">
+      <span class="tag">Programmation</span>
+      <h2>Soirée illimitée</h2>
+      <p>Giocà Furiani — Envie d'une soirée un peu plus fun que la norme&nbsp;? Venez chez Giocà, ce <strong>jeudi 21 janvier 2026</strong>. On vous attend nombreux&nbsp;!</p>
+      <div class="prog__meta">20€ / personne · de 19h à 22h</div>
+      <a href="tel:0495463687" class="btn btn--pink btn--lg">📞 Réserver — 04 95 46 36 87</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer" id="footer">
+  <div class="container">
+    <h2>Suis-nous sur les réseaux&nbsp;!</h2>
+    <div class="socials"><a href="#">◐ Instagram</a><a href="#">◑ Facebook</a><a href="#">◓ TikTok</a></div>
+    <div class="fgrid">
+      <div class="news">
+        <h4>Newsletter</h4>
+        <p>Reçois toutes nos actus&nbsp;!</p>
+        <form class="nlf" onsubmit="return false;"><input type="email" placeholder="E-mail" /><button class="btn btn--pink">Soumettre</button></form>
+        <label class="opt"><input type="checkbox" /> Oui, j'accepte de recevoir les infos Giocà&nbsp;: nouveautés, évènements et astuces…</label>
+      </div>
+      <div class="flinks">
+        <h4>Giocà</h4>
+        <a href="#activites">Giocà Story</a>
+        <a href="#footer">Contact</a>
+        <a href="#actus">Recrutement</a>
+      </div>
+    </div>
+    <div class="fbot"><span>© 2026 Giocà Bastia</span><span>📍 Bastia · 📞 04 95 46 36 87</span></div>
+  </div>
+</footer>
+
+<script>
+const header=document.getElementById('header');
+addEventListener('scroll',()=>header.classList.toggle('scrolled',scrollY>30),{passive:true});
+const b=document.getElementById('burger'),n=document.getElementById('nav');
+b.addEventListener('click',()=>{n.classList.toggle('open');b.classList.toggle('open')});
+n.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{n.classList.remove('open');b.classList.remove('open')}));
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach((el,i)=>{el.style.transitionDelay=(i%3)*80+'ms';io.observe(el)});
+</script>
+</body>
+</html>
