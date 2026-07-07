@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Enquête professionnels — T &amp; C Développement</title>
+  <meta name="description" content="Étude auprès des professionnels : identifier vos problématiques, priorités de formation, budgets et modes de formation préférés. Questionnaire anonyme, 3 minutes." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root{
+      --ink:#12203b;        /* bleu nuit */
+      --ink-2:#33415c;
+      --brand:#0e6e6e;      /* teal / vert profond */
+      --brand-2:#12a594;
+      --accent:#e08a2b;     /* ambre chaleureux */
+      --bg:#f6f7f5;
+      --card:#ffffff;
+      --line:#e4e7e2;
+      --line-2:#d5dad2;
+      --muted:#5f6b7a;
+      --ok:#e6f4f1;
+      --radius:16px;
+      --maxw:820px;
+    }
+    *{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{
+      font-family:'Inter',system-ui,sans-serif;color:var(--ink);line-height:1.6;
+      background:
+        radial-gradient(1200px 600px at 100% -10%,rgba(18,165,148,.10),transparent 55%),
+        radial-gradient(900px 500px at -10% 110%,rgba(224,138,43,.10),transparent 55%),
+        var(--bg);
+      min-height:100vh;
+    }
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+    .serif{font-family:'Fraunces',Georgia,serif;font-weight:600}
+
+    /* progress */
+    .progress-bar{position:fixed;top:0;left:0;height:4px;width:0;z-index:50;
+      background:linear-gradient(90deg,var(--brand),var(--brand-2));transition:width .2s ease}
+
+    /* header */
+    header{padding:52px 0 26px;text-align:center}
+    .brand{display:inline-flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.5px;color:var(--brand);
+      text-transform:uppercase;font-size:14px;margin-bottom:26px}
+    .brand .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(224,138,43,.18)}
+    header h1{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:clamp(30px,5.5vw,46px);line-height:1.08;letter-spacing:-.5px}
+    header h1 em{font-style:italic;color:var(--brand)}
+    .lead{color:var(--muted);font-size:17px;max-width:600px;margin:16px auto 0}
+    .meta{display:inline-flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:22px}
+    .badge{background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 15px;font-size:13px;font-weight:600;color:var(--ink-2)}
+    .badge b{color:var(--brand)}
+
+    /* intro courriel */
+    .intro{background:linear-gradient(180deg,#fff,#fbfcfa);border:1px solid var(--line);border-left:4px solid var(--brand);
+      border-radius:var(--radius);padding:24px 26px;margin:30px 0 6px;color:var(--ink-2);font-size:15.5px}
+    .intro h2{font-size:13px;text-transform:uppercase;letter-spacing:1px;color:var(--brand);margin-bottom:12px;font-weight:800}
+    .intro p{margin-bottom:10px}
+    .intro p:last-child{margin-bottom:0}
+
+    /* form */
+    form{margin:34px 0 60px}
+    .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:30px 28px;margin-bottom:22px;
+      box-shadow:0 1px 2px rgba(18,32,59,.04),0 10px 30px -22px rgba(18,32,59,.25)}
+    .card__kicker{display:inline-block;font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
+    .card__title{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:24px;letter-spacing:-.3px}
+
+    .q{margin-top:26px}
+    .q:first-of-type{margin-top:20px}
+    .q > label,.q .q__label{display:block;font-weight:700;font-size:16.5px;margin-bottom:4px}
+    .q .hint{color:var(--muted);font-size:13.5px;margin-bottom:12px}
+    .q .hint.limit{color:var(--accent);font-weight:600}
+
+    .options{display:grid;gap:10px}
+    .options.cols-2{grid-template-columns:1fr 1fr}
+    .opt{display:flex;align-items:center;gap:12px;border:1px solid var(--line-2);border-radius:12px;padding:13px 15px;
+      cursor:pointer;transition:border-color .15s,background .15s,transform .05s;user-select:none;font-size:15px;font-weight:500}
+    .opt:hover{border-color:var(--brand-2);background:#fbfefe}
+    .opt input{appearance:none;-webkit-appearance:none;width:20px;height:20px;flex:0 0 auto;border:2px solid var(--line-2);
+      background:#fff;cursor:pointer;position:relative;transition:.15s}
+    .opt input[type=radio]{border-radius:50%}
+    .opt input[type=checkbox]{border-radius:6px}
+    .opt input:checked{border-color:var(--brand);background:var(--brand)}
+    .opt input:checked::after{content:"";position:absolute;inset:0;background:#fff;
+      -webkit-mask:no-repeat center/12px url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+      mask:no-repeat center/12px url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E")}
+    .opt input[type=radio]:checked::after{-webkit-mask-size:10px;mask-size:10px}
+    .opt.checked{border-color:var(--brand);background:var(--ok)}
+    .opt.disabled{opacity:.5;cursor:not-allowed}
+    .opt.disabled:hover{border-color:var(--line-2);background:transparent}
+
+    input[type=text],input[type=email],textarea{width:100%;border:1px solid var(--line-2);border-radius:12px;padding:13px 15px;
+      font-family:inherit;font-size:15px;color:var(--ink);background:#fff;transition:border-color .15s,box-shadow .15s}
+    input[type=text]:focus,input[type=email]:focus,textarea:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 3px rgba(14,110,110,.12)}
+    textarea{min-height:96px;resize:vertical}
+
+    /* submit */
+    .submit-row{text-align:center;margin-top:8px}
+    .btn{display:inline-flex;align-items:center;gap:10px;background:var(--brand);color:#fff;font-weight:800;font-size:16px;
+      border:0;border-radius:999px;padding:16px 40px;cursor:pointer;transition:transform .15s,box-shadow .15s,background .2s;
+      box-shadow:0 12px 30px -12px rgba(14,110,110,.6)}
+    .btn:hover{transform:translateY(-2px);background:#0b5e5e;box-shadow:0 18px 40px -12px rgba(14,110,110,.6)}
+    .privacy{color:var(--muted);font-size:13px;margin-top:16px}
+
+    /* thank you */
+    .thanks{display:none;text-align:center;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:50px 30px;
+      box-shadow:0 10px 30px -22px rgba(18,32,59,.25)}
+    .thanks.show{display:block;animation:pop .4s ease}
+    @keyframes pop{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+    .thanks .check{width:64px;height:64px;border-radius:50%;background:var(--ok);color:var(--brand);display:grid;place-items:center;
+      margin:0 auto 20px;font-size:32px}
+    .thanks h2{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:28px;margin-bottom:10px}
+    .thanks p{color:var(--muted);max-width:440px;margin:0 auto}
+
+    footer{text-align:center;color:var(--muted);font-size:13px;padding:0 0 50px}
+    footer strong{color:var(--ink-2)}
+
+    @media(max-width:560px){
+      .options.cols-2{grid-template-columns:1fr}
+      .card{padding:24px 18px}
+      header{padding:38px 0 20px}
+    }
+  </style>
+</head>
+<body>
+  <div class="progress-bar" id="progress"></div>
+
+  <div class="wrap">
+    <header>
+      <div class="brand"><span class="dot"></span> T &amp; C Développement</div>
+      <h1>Enquête <em>professionnels</em></h1>
+      <p class="lead">Nous réalisons une étude pour mieux répondre aux besoins des professionnels : vos problématiques, vos priorités de formation, vos budgets et vos modes de formation préférés.</p>
+      <div class="meta">
+        <span class="badge">🔒 <b>Anonyme</b></span>
+        <span class="badge">⏱ <b>3 minutes</b></span>
+        <span class="badge">📋 Sans engagement</span>
+      </div>
+    </header>
+
+    <div class="intro">
+      <h2>Introduction — courriel à envoyer</h2>
+      <p>Bonjour,</p>
+      <p>Dans le cadre du développement de <strong>T &amp; C Développement</strong>, organisme spécialisé dans le développement des compétences humaines et opérationnelles, nous réalisons une étude afin de mieux répondre aux besoins des professionnels.</p>
+      <p>Ce questionnaire est <strong>anonyme</strong> et ne nécessite que <strong>3 minutes</strong>.</p>
+    </div>
+
+    <form id="survey">
+
+      <!-- ===== PROFIL ===== -->
+      <section class="card">
+        <span class="card__kicker">Section 1</span>
+        <div class="card__title">Votre profil</div>
+
+        <div class="q">
+          <span class="q__label">Quel est votre secteur d'activité ?</span>
+          <div class="options cols-2" data-max="1">
+            <label class="opt"><input type="radio" name="secteur" value="Hôtellerie"> Hôtellerie</label>
+            <label class="opt"><input type="radio" name="secteur" value="Restauration"> Restauration</label>
+            <label class="opt"><input type="radio" name="secteur" value="Tourisme"> Tourisme</label>
+            <label class="opt"><input type="radio" name="secteur" value="Commerce"> Commerce</label>
+            <label class="opt"><input type="radio" name="secteur" value="Services"> Services</label>
+            <label class="opt"><input type="radio" name="secteur" value="Santé"> Santé</label>
+            <label class="opt"><input type="radio" name="secteur" value="Autre"> Autre</label>
+          </div>
+        </div>
+
+        <div class="q">
+          <span class="q__label">Quelle est votre fonction ?</span>
+          <div class="options cols-2" data-max="1">
+            <label class="opt"><input type="radio" name="fonction" value="Dirigeant"> Dirigeant</label>
+            <label class="opt"><input type="radio" name="fonction" value="Responsable RH"> Responsable RH</label>
+            <label class="opt"><input type="radio" name="fonction" value="Manager"> Manager</label>
+            <label class="opt"><input type="radio" name="fonction" value="Chef d'entreprise"> Chef d'entreprise</label>
+            <label class="opt"><input type="radio" name="fonction" value="Collaborateur"> Collaborateur</label>
+            <label class="opt"><input type="radio" name="fonction" value="Autre"> Autre</label>
+          </div>
+        </div>
+
+        <div class="q">
+          <span class="q__label">Taille de votre structure ?</span>
+          <div class="options cols-2" data-max="1">
+            <label class="opt"><input type="radio" name="taille" value="1 à 10 salariés"> 1 à 10 salariés</label>
+            <label class="opt"><input type="radio" name="taille" value="11 à 50"> 11 à 50</label>
+            <label class="opt"><input type="radio" name="taille" value="51 à 100"> 51 à 100</label>
+            <label class="opt"><input type="radio" name="taille" value="Plus de 100"> Plus de 100</label>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== BESOINS ===== -->
+      <section class="card">
+        <span class="card__kicker">Section 2</span>
+        <div class="card__title">Vos besoins</div>
+
+        <div class="q">
+          <span class="q__label">Quels sont aujourd'hui vos principaux défis ?</span>
+          <p class="hint limit">Cochez 3 réponses maximum · <span class="counter" data-for="defis">0/3</span></p>
+          <div class="options cols-2" data-max="3">
+            <label class="opt"><input type="checkbox" name="defis" value="Fidéliser les collaborateurs"> Fidéliser les collaborateurs</label>
+            <label class="opt"><input type="checkbox" name="defis" value="Recruter"> Recruter</label>
+            <label class="opt"><input type="checkbox" name="defis" value="Développer les compétences"> Développer les compétences</label>
+            <label class="opt"><input type="checkbox" name="defis" value="Manager les équipes"> Manager les équipes</label>
+            <label class="opt"><input type="checkbox" name="defis" value="Améliorer la qualité de service"> Améliorer la qualité de service</label>
+            <label class="opt"><input type="checkbox" name="defis" value="Réduire le turnover"> Réduire le turnover</label>
+            <label class="opt"><input type="checkbox" name="defis" value="Prévenir les conflits"> Prévenir les conflits</label>
+            <label class="opt"><input type="checkbox" name="defis" value="Développer les ventes"> Développer les ventes</label>
+            <label class="opt"><input type="checkbox" name="defis" value="Accompagner le changement"> Accompagner le changement</label>
+            <label class="opt"><input type="checkbox" name="defis" value="Bien-être au travail"> Bien-être au travail</label>
+          </div>
+        </div>
+
+        <div class="q">
+          <span class="q__label">Quelles formations vous intéressent le plus ?</span>
+          <p class="hint">Plusieurs choix possibles.</p>
+          <div class="options cols-2">
+            <label class="opt"><input type="checkbox" name="formations" value="Excellence relation client"> Excellence relation client</label>
+            <label class="opt"><input type="checkbox" name="formations" value="Management"> Management</label>
+            <label class="opt"><input type="checkbox" name="formations" value="Leadership"> Leadership</label>
+            <label class="opt"><input type="checkbox" name="formations" value="Intelligence émotionnelle"> Intelligence émotionnelle</label>
+            <label class="opt"><input type="checkbox" name="formations" value="Gestion du stress"> Gestion du stress</label>
+            <label class="opt"><input type="checkbox" name="formations" value="Communication"> Communication</label>
+            <label class="opt"><input type="checkbox" name="formations" value="Gestion des conflits"> Gestion des conflits</label>
+            <label class="opt"><input type="checkbox" name="formations" value="Cohésion d'équipe"> Cohésion d'équipe</label>
+            <label class="opt"><input type="checkbox" name="formations" value="Développement commercial"> Développement commercial</label>
+            <label class="opt"><input type="checkbox" name="formations" value="Suivi régulier problématiques diverses"> Un suivi régulier pour aborder des problématiques diverses</label>
+          </div>
+        </div>
+
+        <div class="q">
+          <label for="competence">Selon vous, quelle compétence sera essentielle dans les 3 prochaines années ?</label>
+          <p class="hint">Question ouverte.</p>
+          <textarea id="competence" name="competence" placeholder="Votre réponse…"></textarea>
+        </div>
+      </section>
+
+      <!-- ===== FORMATS ===== -->
+      <section class="card">
+        <span class="card__kicker">Section 3</span>
+        <div class="card__title">Formats</div>
+
+        <div class="q">
+          <span class="q__label">Quel format préférez-vous ?</span>
+          <div class="options cols-2" data-max="1">
+            <label class="opt"><input type="radio" name="format" value="Présentiel"> Présentiel</label>
+            <label class="opt"><input type="radio" name="format" value="Distanciel"> Distanciel</label>
+            <label class="opt"><input type="radio" name="format" value="Mixte"> Mixte</label>
+            <label class="opt"><input type="radio" name="format" value="Peu importe"> Peu importe</label>
+          </div>
+        </div>
+
+        <div class="q">
+          <span class="q__label">Quelle durée privilégiez-vous ?</span>
+          <div class="options cols-2" data-max="1">
+            <label class="opt"><input type="radio" name="duree" value="1/2 journée"> ½ journée</label>
+            <label class="opt"><input type="radio" name="duree" value="1 jour"> 1 jour</label>
+            <label class="opt"><input type="radio" name="duree" value="2 jours"> 2 jours</label>
+            <label class="opt"><input type="radio" name="duree" value="Parcours plus long"> Parcours plus long</label>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===== DÉCISION D'ACHAT ===== -->
+      <section class="card">
+        <span class="card__kicker">Section 4</span>
+        <div class="card__title">Décision d'achat</div>
+
+        <div class="q">
+          <span class="q__label">Qu'est-ce qui vous convainc de choisir un organisme de formation ?</span>
+          <p class="hint">Plusieurs choix possibles.</p>
+          <div class="options cols-2">
+            <label class="opt"><input type="checkbox" name="criteres" value="Expertise métier"> Expertise métier</label>
+            <label class="opt"><input type="checkbox" name="criteres" value="Recommandations"> Recommandations</label>
+            <label class="opt"><input type="checkbox" name="criteres" value="Références clients"> Références clients</label>
+            <label class="opt"><input type="checkbox" name="criteres" value="Proximité"> Proximité</label>
+            <label class="opt"><input type="checkbox" name="criteres" value="Prix"> Prix</label>
+            <label class="opt"><input type="checkbox" name="criteres" value="Approche humaine"> Approche humaine</label>
+            <label class="opt"><input type="checkbox" name="criteres" value="Personnalisation"> Personnalisation</label>
+          </div>
+        </div>
+
+        <div class="q">
+          <span class="q__label">Seriez-vous intéressé(e) pour découvrir nos futures formations ?</span>
+          <div class="options cols-2" data-max="1">
+            <label class="opt"><input type="radio" name="interet" value="Oui" id="interet-oui"> Oui</label>
+            <label class="opt"><input type="radio" name="interet" value="Non"> Non</label>
+          </div>
+        </div>
+
+        <div class="q">
+          <label for="email">Votre email <span style="color:var(--muted);font-weight:500">(facultatif)</span></label>
+          <p class="hint">Uniquement si vous souhaitez être recontacté(e) — votre questionnaire reste anonyme.</p>
+          <input type="email" id="email" name="email" placeholder="prenom@entreprise.fr" />
+        </div>
+      </section>
+
+      <div class="submit-row">
+        <button type="submit" class="btn">Envoyer mes réponses →</button>
+        <p class="privacy">Vos réponses nous aident à construire des formations qui vous ressemblent. Merci&nbsp;!</p>
+      </div>
+    </form>
+
+    <div class="thanks" id="thanks">
+      <div class="check">✓</div>
+      <h2>Merci pour votre participation&nbsp;!</h2>
+      <p>Vos réponses ont bien été prises en compte. Elles nous aideront à concevoir des formations réellement adaptées à vos besoins.</p>
+    </div>
+
+    <footer>
+      <strong>T &amp; C Développement</strong> — Développement des compétences humaines et opérationnelles.
+    </footer>
+  </div>
+
+  <script>
+    // Barre de progression au scroll
+    const bar = document.getElementById('progress');
+    window.addEventListener('scroll', () => {
+      const h = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
+    });
+
+    // État visuel + limite de cases par groupe
+    const form = document.getElementById('survey');
+
+    function refreshGroup(group){
+      const max = parseInt(group.dataset.max || '0', 10);
+      const boxes = [...group.querySelectorAll('input')];
+      const checkedCount = boxes.filter(b => b.checked).length;
+
+      boxes.forEach(b => {
+        const opt = b.closest('.opt');
+        opt.classList.toggle('checked', b.checked);
+        // Limite uniquement pour les cases à cocher avec un max défini
+        if (b.type === 'checkbox' && max > 0){
+          const lock = !b.checked && checkedCount >= max;
+          b.disabled = lock;
+          opt.classList.toggle('disabled', lock);
+        }
+      });
+
+      // Compteur éventuel
+      const name = boxes[0] && boxes[0].name;
+      const counter = document.querySelector('.counter[data-for="' + name + '"]');
+      if (counter && max > 0) counter.textContent = checkedCount + '/' + max;
+    }
+
+    form.querySelectorAll('.options').forEach(g => {
+      g.addEventListener('change', () => refreshGroup(g));
+      refreshGroup(g);
+    });
+
+    // Soumission — collecte les réponses (démo : affichage remerciement + console)
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const data = new FormData(form);
+      const result = {};
+      for (const [k, v] of data.entries()){
+        if (result[k]) { result[k] = [].concat(result[k], v); }
+        else { result[k] = v; }
+      }
+      console.log('Réponses de l\'enquête :', result);
+
+      form.style.display = 'none';
+      const thanks = document.getElementById('thanks');
+      thanks.classList.add('show');
+      thanks.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    });
+  </script>
+</body>
+</html>
