@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Enquête professionnels — T &amp; C Développement</title>
+  <title>Enquête professionnels — T &amp; C Transmission et Compétence</title>
   <meta name="description" content="Étude auprès des professionnels : vos problématiques, priorités de formation, budgets et modes de formation préférés. Questionnaire anonyme, 3 minutes." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -52,6 +52,20 @@
       animation:drift1 38s ease-in-out infinite reverse}
     @keyframes drift1{50%{transform:translate(-26px,34px) scale(1.08)}}
     @keyframes drift2{50%{transform:translate(30px,-28px) scale(1.06)}}
+    /* boule de lumière qui se déplace doucement */
+    .orb{position:absolute;top:0;left:0;width:min(34vw,300px);height:min(34vw,300px);border-radius:50%;
+      background:radial-gradient(circle,rgba(255,251,238,.95) 0%,rgba(240,214,150,.55) 30%,rgba(150,190,170,.28) 52%,rgba(150,190,170,0) 72%);
+      filter:blur(26px);will-change:transform,opacity;
+      animation:orbit 30s ease-in-out infinite,glow 7s ease-in-out infinite}
+    @keyframes orbit{
+      0%  {transform:translate(4vw,14vh)  scale(1)}
+      22% {transform:translate(66vw,6vh)  scale(1.14)}
+      44% {transform:translate(78vw,58vh) scale(.92)}
+      64% {transform:translate(28vw,74vh) scale(1.12)}
+      84% {transform:translate(-6vw,42vh) scale(1)}
+      100%{transform:translate(4vw,14vh)  scale(1)}
+    }
+    @keyframes glow{0%,100%{opacity:.85}50%{opacity:1}}
     .dandelion{position:absolute;bottom:-40px;left:-70px;width:min(48vw,520px);color:var(--brand);
       opacity:.10;transform:rotate(-4deg);filter:blur(1.4px)}
     .dandelion svg{width:100%;height:auto;display:block}
@@ -158,6 +172,7 @@
 
     @media(prefers-reduced-motion:reduce){
       .seed{display:none!important}
+      .orb,.blob{animation:none!important}
     }
     @media(max-width:560px){
       .options.cols-2{grid-template-columns:1fr}
@@ -176,13 +191,14 @@
     <div class="blob blob--1"></div>
     <div class="blob blob--2"></div>
     <div class="blob blob--3"></div>
+    <div class="orb"></div>
     <div class="dandelion" id="dandelion"></div>
   </div>
   <div class="veil" aria-hidden="true"></div>
 
   <div class="wrap">
     <header>
-      <div class="brand">T &amp; C Développement</div>
+      <div class="brand">T &amp; C Transmission et Compétence</div>
       <h1>Enquête <em>professionnels</em></h1>
       <p class="lead">Nous menons une étude pour mieux répondre à vos besoins&nbsp;: vos problématiques, vos priorités de formation, vos budgets et vos modes de formation préférés.</p>
       <div class="meta">
@@ -195,7 +211,7 @@
     <div class="intro">
       <span class="tag">Introduction — courriel à envoyer</span>
       <p>Bonjour,</p>
-      <p>Dans le cadre du développement de <strong>T &amp; C Développement</strong>, organisme spécialisé dans le développement des compétences humaines et opérationnelles, nous réalisons une étude afin de mieux répondre aux besoins des professionnels.</p>
+      <p>Dans le cadre du développement de <strong>T &amp; C Transmission et Compétence</strong>, organisme spécialisé dans le développement des compétences humaines et opérationnelles, nous réalisons une étude afin de mieux répondre aux besoins des professionnels.</p>
       <p>Ce questionnaire est <strong>anonyme</strong> et ne nécessite que <strong>3 minutes</strong>.</p>
     </div>
 
@@ -369,7 +385,7 @@
     </div>
 
     <footer>
-      <strong>T &amp; C Développement</strong> — Développement des compétences humaines et opérationnelles
+      <strong>T &amp; C Transmission et Compétence</strong> — Développement des compétences humaines et opérationnelles
     </footer>
   </div>
 
