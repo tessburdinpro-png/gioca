@@ -4,143 +4,176 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Enquête professionnels — T &amp; C Développement</title>
-  <meta name="description" content="Étude auprès des professionnels : identifier vos problématiques, priorités de formation, budgets et modes de formation préférés. Questionnaire anonyme, 3 minutes." />
+  <meta name="description" content="Étude auprès des professionnels : vos problématiques, priorités de formation, budgets et modes de formation préférés. Questionnaire anonyme, 3 minutes." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,400&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root{
-      --ink:#12203b;        /* bleu nuit */
-      --ink-2:#33415c;
-      --brand:#0e6e6e;      /* teal / vert profond */
-      --brand-2:#12a594;
-      --accent:#e08a2b;     /* ambre chaleureux */
-      --bg:#f6f7f5;
+      --ink:#1d2b2b;          /* vert-ardoise profond */
+      --ink-soft:#48575a;
+      --muted:#7c8a8b;
+      --brand:#2f6b5e;        /* vert eucalyptus profond */
+      --brand-deep:#234f45;
+      --brand-tint:#eef4f1;
+      --accent:#c98a3f;       /* ocre doux */
+      --accent-soft:#f4ead9;
+      --paper:#faf8f3;        /* crème */
+      --paper-2:#f4f1ea;
       --card:#ffffff;
-      --line:#e4e7e2;
-      --line-2:#d5dad2;
-      --muted:#5f6b7a;
-      --ok:#e6f4f1;
-      --radius:16px;
-      --maxw:820px;
+      --line:#e7e3d9;
+      --line-strong:#d8d3c6;
+      --radius:14px;
+      --maxw:760px;
     }
     *{box-sizing:border-box;margin:0;padding:0}
     html{scroll-behavior:smooth}
     body{
-      font-family:'Inter',system-ui,sans-serif;color:var(--ink);line-height:1.6;
-      background:
-        radial-gradient(1200px 600px at 100% -10%,rgba(18,165,148,.10),transparent 55%),
-        radial-gradient(900px 500px at -10% 110%,rgba(224,138,43,.10),transparent 55%),
-        var(--bg);
-      min-height:100vh;
+      font-family:'Inter',system-ui,sans-serif;color:var(--ink);line-height:1.65;font-weight:400;
+      background:var(--paper);
+      -webkit-font-smoothing:antialiased;
+      position:relative;overflow-x:hidden;
     }
-    .wrap{max-width:var(--maxw);margin:0 auto;padding:0 20px}
-    .serif{font-family:'Fraunces',Georgia,serif;font-weight:600}
+    .serif{font-family:'Fraunces',Georgia,serif}
+    .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;position:relative;z-index:2}
+
+    /* ===== Décor : pissenlit + graines au vent ===== */
+    .decor{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+    .dandelion{position:absolute;bottom:-40px;left:-70px;width:min(48vw,520px);color:var(--brand);
+      opacity:.09;transform:rotate(-4deg)}
+    .dandelion svg{width:100%;height:auto;display:block}
+    .seed{position:absolute;color:var(--brand);will-change:transform,opacity}
+    .seed svg{display:block}
+
+    /* voile crème pour garder la lisibilité du texte au centre */
+    .veil{position:fixed;inset:0;z-index:1;pointer-events:none;
+      background:radial-gradient(120% 80% at 50% 30%,rgba(250,248,243,.72) 0%,rgba(250,248,243,.30) 55%,rgba(250,248,243,0) 80%)}
 
     /* progress */
-    .progress-bar{position:fixed;top:0;left:0;height:4px;width:0;z-index:50;
-      background:linear-gradient(90deg,var(--brand),var(--brand-2));transition:width .2s ease}
+    .progress-bar{position:fixed;top:0;left:0;height:3px;width:0;z-index:60;
+      background:linear-gradient(90deg,var(--brand),var(--accent));transition:width .15s ease}
 
-    /* header */
-    header{padding:52px 0 26px;text-align:center}
-    .brand{display:inline-flex;align-items:center;gap:10px;font-weight:800;letter-spacing:.5px;color:var(--brand);
-      text-transform:uppercase;font-size:14px;margin-bottom:26px}
-    .brand .dot{width:9px;height:9px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px rgba(224,138,43,.18)}
-    header h1{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:clamp(30px,5.5vw,46px);line-height:1.08;letter-spacing:-.5px}
+    /* ===== Header ===== */
+    header{padding:88px 0 44px;text-align:center}
+    .brand{display:inline-flex;align-items:center;gap:9px;font-size:12.5px;font-weight:600;letter-spacing:2.5px;
+      text-transform:uppercase;color:var(--brand);margin-bottom:34px}
+    .brand::before,.brand::after{content:"";width:26px;height:1px;background:var(--line-strong)}
+    header h1{font-family:'Fraunces',Georgia,serif;font-weight:400;font-size:clamp(38px,7vw,64px);line-height:1.05;
+      letter-spacing:-1px;color:var(--ink)}
     header h1 em{font-style:italic;color:var(--brand)}
-    .lead{color:var(--muted);font-size:17px;max-width:600px;margin:16px auto 0}
-    .meta{display:inline-flex;gap:10px;flex-wrap:wrap;justify-content:center;margin-top:22px}
-    .badge{background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 15px;font-size:13px;font-weight:600;color:var(--ink-2)}
-    .badge b{color:var(--brand)}
+    .lead{color:var(--ink-soft);font-size:17.5px;font-weight:400;max-width:560px;margin:22px auto 0;line-height:1.7}
+    .meta{margin-top:28px;font-size:13px;letter-spacing:.4px;color:var(--muted);
+      display:inline-flex;gap:14px;flex-wrap:wrap;justify-content:center;align-items:center}
+    .meta span{display:inline-flex;align-items:center;gap:6px}
+    .meta .sep{width:4px;height:4px;border-radius:50%;background:var(--line-strong)}
+    .meta b{color:var(--brand);font-weight:600}
 
-    /* intro courriel */
-    .intro{background:linear-gradient(180deg,#fff,#fbfcfa);border:1px solid var(--line);border-left:4px solid var(--brand);
-      border-radius:var(--radius);padding:24px 26px;margin:30px 0 6px;color:var(--ink-2);font-size:15.5px}
-    .intro h2{font-size:13px;text-transform:uppercase;letter-spacing:1px;color:var(--brand);margin-bottom:12px;font-weight:800}
-    .intro p{margin-bottom:10px}
+    /* ===== Intro courriel ===== */
+    .intro{margin:44px 0 8px;padding:30px 34px;background:var(--card);border:1px solid var(--line);
+      border-radius:var(--radius);position:relative;box-shadow:0 20px 50px -40px rgba(29,43,43,.5)}
+    .intro::before{content:"";position:absolute;left:0;top:22px;bottom:22px;width:2px;border-radius:2px;
+      background:linear-gradient(var(--brand),var(--accent))}
+    .intro .tag{font-size:11px;font-weight:600;letter-spacing:2px;text-transform:uppercase;color:var(--accent);
+      display:block;margin-bottom:14px}
+    .intro p{color:var(--ink-soft);font-size:15.5px;margin-bottom:11px}
     .intro p:last-child{margin-bottom:0}
+    .intro strong{color:var(--ink);font-weight:600}
 
-    /* form */
-    form{margin:34px 0 60px}
-    .card{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:30px 28px;margin-bottom:22px;
-      box-shadow:0 1px 2px rgba(18,32,59,.04),0 10px 30px -22px rgba(18,32,59,.25)}
-    .card__kicker{display:inline-block;font-size:12px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--accent);margin-bottom:6px}
-    .card__title{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:24px;letter-spacing:-.3px}
+    /* ===== Sections ===== */
+    form{margin:40px 0 40px}
+    .section{margin-bottom:14px;padding:38px 34px;background:var(--card);border:1px solid var(--line);
+      border-radius:var(--radius);box-shadow:0 20px 50px -42px rgba(29,43,43,.55)}
+    .section__head{display:flex;align-items:baseline;gap:16px;padding-bottom:22px;margin-bottom:8px;
+      border-bottom:1px solid var(--line)}
+    .section__num{font-family:'Fraunces',Georgia,serif;font-style:italic;font-size:22px;color:var(--accent);
+      font-weight:400;flex:0 0 auto;line-height:1}
+    .section__title{font-family:'Fraunces',Georgia,serif;font-weight:500;font-size:26px;letter-spacing:-.4px;color:var(--ink)}
 
-    .q{margin-top:26px}
-    .q:first-of-type{margin-top:20px}
-    .q > label,.q .q__label{display:block;font-weight:700;font-size:16.5px;margin-bottom:4px}
-    .q .hint{color:var(--muted);font-size:13.5px;margin-bottom:12px}
-    .q .hint.limit{color:var(--accent);font-weight:600}
+    .q{margin-top:28px}
+    .q__label{display:block;font-weight:600;font-size:16px;color:var(--ink);margin-bottom:5px;letter-spacing:-.1px}
+    .q .hint{color:var(--muted);font-size:13.5px;margin-bottom:14px;font-weight:400}
+    .q .hint .counter{color:var(--accent);font-weight:600}
 
-    .options{display:grid;gap:10px}
+    .options{display:grid;gap:9px}
     .options.cols-2{grid-template-columns:1fr 1fr}
-    .opt{display:flex;align-items:center;gap:12px;border:1px solid var(--line-2);border-radius:12px;padding:13px 15px;
-      cursor:pointer;transition:border-color .15s,background .15s,transform .05s;user-select:none;font-size:15px;font-weight:500}
-    .opt:hover{border-color:var(--brand-2);background:#fbfefe}
-    .opt input{appearance:none;-webkit-appearance:none;width:20px;height:20px;flex:0 0 auto;border:2px solid var(--line-2);
-      background:#fff;cursor:pointer;position:relative;transition:.15s}
+    .opt{display:flex;align-items:center;gap:12px;border:1px solid var(--line-strong);border-radius:11px;
+      padding:12px 15px;cursor:pointer;transition:border-color .18s,background .18s,color .18s;
+      font-size:14.5px;font-weight:400;color:var(--ink-soft);background:var(--card)}
+    .opt:hover{border-color:var(--brand);color:var(--ink)}
+    .opt input{appearance:none;-webkit-appearance:none;width:19px;height:19px;flex:0 0 auto;
+      border:1.6px solid var(--line-strong);background:#fff;cursor:pointer;position:relative;transition:.15s}
     .opt input[type=radio]{border-radius:50%}
-    .opt input[type=checkbox]{border-radius:6px}
+    .opt input[type=checkbox]{border-radius:5px}
     .opt input:checked{border-color:var(--brand);background:var(--brand)}
     .opt input:checked::after{content:"";position:absolute;inset:0;background:#fff;
-      -webkit-mask:no-repeat center/12px url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
-      mask:no-repeat center/12px url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E")}
-    .opt input[type=radio]:checked::after{-webkit-mask-size:10px;mask-size:10px}
-    .opt.checked{border-color:var(--brand);background:var(--ok)}
-    .opt.disabled{opacity:.5;cursor:not-allowed}
-    .opt.disabled:hover{border-color:var(--line-2);background:transparent}
+      -webkit-mask:no-repeat center/11px url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");
+      mask:no-repeat center/11px url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E")}
+    .opt input[type=radio]:checked::after{-webkit-mask-size:9px;mask-size:9px}
+    .opt.checked{border-color:var(--brand);background:var(--brand-tint);color:var(--ink)}
+    .opt.disabled{opacity:.42;cursor:not-allowed}
+    .opt.disabled:hover{border-color:var(--line-strong);color:var(--ink-soft)}
 
-    input[type=text],input[type=email],textarea{width:100%;border:1px solid var(--line-2);border-radius:12px;padding:13px 15px;
-      font-family:inherit;font-size:15px;color:var(--ink);background:#fff;transition:border-color .15s,box-shadow .15s}
-    input[type=text]:focus,input[type=email]:focus,textarea:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 3px rgba(14,110,110,.12)}
-    textarea{min-height:96px;resize:vertical}
+    input[type=text],input[type=email],textarea{width:100%;border:1px solid var(--line-strong);border-radius:11px;
+      padding:13px 15px;font-family:inherit;font-size:15px;color:var(--ink);background:#fff;
+      transition:border-color .18s,box-shadow .18s}
+    input::placeholder,textarea::placeholder{color:#a9b2ac}
+    input:focus,textarea:focus{outline:none;border-color:var(--brand);box-shadow:0 0 0 3px rgba(47,107,94,.12)}
+    textarea{min-height:92px;resize:vertical}
 
-    /* submit */
-    .submit-row{text-align:center;margin-top:8px}
-    .btn{display:inline-flex;align-items:center;gap:10px;background:var(--brand);color:#fff;font-weight:800;font-size:16px;
-      border:0;border-radius:999px;padding:16px 40px;cursor:pointer;transition:transform .15s,box-shadow .15s,background .2s;
-      box-shadow:0 12px 30px -12px rgba(14,110,110,.6)}
-    .btn:hover{transform:translateY(-2px);background:#0b5e5e;box-shadow:0 18px 40px -12px rgba(14,110,110,.6)}
-    .privacy{color:var(--muted);font-size:13px;margin-top:16px}
+    /* ===== Submit ===== */
+    .submit-row{text-align:center;margin-top:20px}
+    .btn{display:inline-flex;align-items:center;gap:10px;background:var(--brand);color:#fff;font-weight:600;
+      font-size:15.5px;letter-spacing:.2px;border:0;border-radius:999px;padding:16px 42px;cursor:pointer;
+      transition:transform .18s,box-shadow .2s,background .2s;box-shadow:0 16px 34px -16px rgba(47,107,94,.7)}
+    .btn:hover{transform:translateY(-2px);background:var(--brand-deep);box-shadow:0 22px 44px -16px rgba(47,107,94,.7)}
+    .privacy{color:var(--muted);font-size:13px;margin-top:16px;max-width:420px;margin-left:auto;margin-right:auto}
 
-    /* thank you */
-    .thanks{display:none;text-align:center;background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:50px 30px;
-      box-shadow:0 10px 30px -22px rgba(18,32,59,.25)}
-    .thanks.show{display:block;animation:pop .4s ease}
-    @keyframes pop{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
-    .thanks .check{width:64px;height:64px;border-radius:50%;background:var(--ok);color:var(--brand);display:grid;place-items:center;
-      margin:0 auto 20px;font-size:32px}
-    .thanks h2{font-family:'Fraunces',Georgia,serif;font-weight:600;font-size:28px;margin-bottom:10px}
-    .thanks p{color:var(--muted);max-width:440px;margin:0 auto}
+    /* ===== Thank you ===== */
+    .thanks{display:none;text-align:center;padding:70px 30px}
+    .thanks.show{display:block;animation:rise .5s ease}
+    @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+    .thanks .mark{width:70px;height:70px;margin:0 auto 24px;color:var(--brand)}
+    .thanks h2{font-family:'Fraunces',Georgia,serif;font-weight:500;font-size:32px;margin-bottom:12px;letter-spacing:-.4px}
+    .thanks p{color:var(--ink-soft);max-width:440px;margin:0 auto;font-size:16px}
 
-    footer{text-align:center;color:var(--muted);font-size:13px;padding:0 0 50px}
-    footer strong{color:var(--ink-2)}
+    footer{text-align:center;color:var(--muted);font-size:12.5px;letter-spacing:.3px;padding:10px 0 56px}
+    footer strong{color:var(--ink-soft);font-weight:600}
 
+    @media(prefers-reduced-motion:reduce){
+      .seed{display:none!important}
+    }
     @media(max-width:560px){
       .options.cols-2{grid-template-columns:1fr}
-      .card{padding:24px 18px}
-      header{padding:38px 0 20px}
+      .section{padding:30px 22px}
+      .intro{padding:26px 22px}
+      header{padding:60px 0 30px}
+      .dandelion{opacity:.06;width:70vw}
     }
   </style>
 </head>
 <body>
   <div class="progress-bar" id="progress"></div>
 
+  <!-- Décor pissenlit + graines -->
+  <div class="decor" aria-hidden="true">
+    <div class="dandelion" id="dandelion"></div>
+  </div>
+  <div class="veil" aria-hidden="true"></div>
+
   <div class="wrap">
     <header>
-      <div class="brand"><span class="dot"></span> T &amp; C Développement</div>
+      <div class="brand">T &amp; C Développement</div>
       <h1>Enquête <em>professionnels</em></h1>
-      <p class="lead">Nous réalisons une étude pour mieux répondre aux besoins des professionnels : vos problématiques, vos priorités de formation, vos budgets et vos modes de formation préférés.</p>
+      <p class="lead">Nous menons une étude pour mieux répondre à vos besoins&nbsp;: vos problématiques, vos priorités de formation, vos budgets et vos modes de formation préférés.</p>
       <div class="meta">
-        <span class="badge">🔒 <b>Anonyme</b></span>
-        <span class="badge">⏱ <b>3 minutes</b></span>
-        <span class="badge">📋 Sans engagement</span>
+        <span><b>Anonyme</b></span><span class="sep"></span>
+        <span><b>3 minutes</b></span><span class="sep"></span>
+        <span>Sans engagement</span>
       </div>
     </header>
 
     <div class="intro">
-      <h2>Introduction — courriel à envoyer</h2>
+      <span class="tag">Introduction — courriel à envoyer</span>
       <p>Bonjour,</p>
       <p>Dans le cadre du développement de <strong>T &amp; C Développement</strong>, organisme spécialisé dans le développement des compétences humaines et opérationnelles, nous réalisons une étude afin de mieux répondre aux besoins des professionnels.</p>
       <p>Ce questionnaire est <strong>anonyme</strong> et ne nécessite que <strong>3 minutes</strong>.</p>
@@ -148,13 +181,15 @@
 
     <form id="survey">
 
-      <!-- ===== PROFIL ===== -->
-      <section class="card">
-        <span class="card__kicker">Section 1</span>
-        <div class="card__title">Votre profil</div>
+      <!-- Profil -->
+      <section class="section">
+        <div class="section__head">
+          <span class="section__num">01</span>
+          <h2 class="section__title">Votre profil</h2>
+        </div>
 
         <div class="q">
-          <span class="q__label">Quel est votre secteur d'activité ?</span>
+          <span class="q__label">Quel est votre secteur d'activité&nbsp;?</span>
           <div class="options cols-2" data-max="1">
             <label class="opt"><input type="radio" name="secteur" value="Hôtellerie"> Hôtellerie</label>
             <label class="opt"><input type="radio" name="secteur" value="Restauration"> Restauration</label>
@@ -167,7 +202,7 @@
         </div>
 
         <div class="q">
-          <span class="q__label">Quelle est votre fonction ?</span>
+          <span class="q__label">Quelle est votre fonction&nbsp;?</span>
           <div class="options cols-2" data-max="1">
             <label class="opt"><input type="radio" name="fonction" value="Dirigeant"> Dirigeant</label>
             <label class="opt"><input type="radio" name="fonction" value="Responsable RH"> Responsable RH</label>
@@ -179,7 +214,7 @@
         </div>
 
         <div class="q">
-          <span class="q__label">Taille de votre structure ?</span>
+          <span class="q__label">Taille de votre structure&nbsp;?</span>
           <div class="options cols-2" data-max="1">
             <label class="opt"><input type="radio" name="taille" value="1 à 10 salariés"> 1 à 10 salariés</label>
             <label class="opt"><input type="radio" name="taille" value="11 à 50"> 11 à 50</label>
@@ -189,14 +224,16 @@
         </div>
       </section>
 
-      <!-- ===== BESOINS ===== -->
-      <section class="card">
-        <span class="card__kicker">Section 2</span>
-        <div class="card__title">Vos besoins</div>
+      <!-- Besoins -->
+      <section class="section">
+        <div class="section__head">
+          <span class="section__num">02</span>
+          <h2 class="section__title">Vos besoins</h2>
+        </div>
 
         <div class="q">
-          <span class="q__label">Quels sont aujourd'hui vos principaux défis ?</span>
-          <p class="hint limit">Cochez 3 réponses maximum · <span class="counter" data-for="defis">0/3</span></p>
+          <span class="q__label">Quels sont aujourd'hui vos principaux défis&nbsp;?</span>
+          <p class="hint">Cochez 3 réponses maximum · <span class="counter" data-for="defis">0 / 3</span></p>
           <div class="options cols-2" data-max="3">
             <label class="opt"><input type="checkbox" name="defis" value="Fidéliser les collaborateurs"> Fidéliser les collaborateurs</label>
             <label class="opt"><input type="checkbox" name="defis" value="Recruter"> Recruter</label>
@@ -212,7 +249,7 @@
         </div>
 
         <div class="q">
-          <span class="q__label">Quelles formations vous intéressent le plus ?</span>
+          <span class="q__label">Quelles formations vous intéressent le plus&nbsp;?</span>
           <p class="hint">Plusieurs choix possibles.</p>
           <div class="options cols-2">
             <label class="opt"><input type="checkbox" name="formations" value="Excellence relation client"> Excellence relation client</label>
@@ -224,24 +261,26 @@
             <label class="opt"><input type="checkbox" name="formations" value="Gestion des conflits"> Gestion des conflits</label>
             <label class="opt"><input type="checkbox" name="formations" value="Cohésion d'équipe"> Cohésion d'équipe</label>
             <label class="opt"><input type="checkbox" name="formations" value="Développement commercial"> Développement commercial</label>
-            <label class="opt"><input type="checkbox" name="formations" value="Suivi régulier problématiques diverses"> Un suivi régulier pour aborder des problématiques diverses</label>
+            <label class="opt"><input type="checkbox" name="formations" value="Suivi régulier problématiques diverses"> Un suivi régulier pour des problématiques diverses</label>
           </div>
         </div>
 
         <div class="q">
-          <label for="competence">Selon vous, quelle compétence sera essentielle dans les 3 prochaines années ?</label>
+          <label class="q__label" for="competence">Selon vous, quelle compétence sera essentielle dans les 3 prochaines années&nbsp;?</label>
           <p class="hint">Question ouverte.</p>
           <textarea id="competence" name="competence" placeholder="Votre réponse…"></textarea>
         </div>
       </section>
 
-      <!-- ===== FORMATS ===== -->
-      <section class="card">
-        <span class="card__kicker">Section 3</span>
-        <div class="card__title">Formats</div>
+      <!-- Formats -->
+      <section class="section">
+        <div class="section__head">
+          <span class="section__num">03</span>
+          <h2 class="section__title">Formats</h2>
+        </div>
 
         <div class="q">
-          <span class="q__label">Quel format préférez-vous ?</span>
+          <span class="q__label">Quel format préférez-vous&nbsp;?</span>
           <div class="options cols-2" data-max="1">
             <label class="opt"><input type="radio" name="format" value="Présentiel"> Présentiel</label>
             <label class="opt"><input type="radio" name="format" value="Distanciel"> Distanciel</label>
@@ -251,7 +290,7 @@
         </div>
 
         <div class="q">
-          <span class="q__label">Quelle durée privilégiez-vous ?</span>
+          <span class="q__label">Quelle durée privilégiez-vous&nbsp;?</span>
           <div class="options cols-2" data-max="1">
             <label class="opt"><input type="radio" name="duree" value="1/2 journée"> ½ journée</label>
             <label class="opt"><input type="radio" name="duree" value="1 jour"> 1 jour</label>
@@ -261,13 +300,15 @@
         </div>
       </section>
 
-      <!-- ===== DÉCISION D'ACHAT ===== -->
-      <section class="card">
-        <span class="card__kicker">Section 4</span>
-        <div class="card__title">Décision d'achat</div>
+      <!-- Décision d'achat -->
+      <section class="section">
+        <div class="section__head">
+          <span class="section__num">04</span>
+          <h2 class="section__title">Décision d'achat</h2>
+        </div>
 
         <div class="q">
-          <span class="q__label">Qu'est-ce qui vous convainc de choisir un organisme de formation ?</span>
+          <span class="q__label">Qu'est-ce qui vous convainc de choisir un organisme de formation&nbsp;?</span>
           <p class="hint">Plusieurs choix possibles.</p>
           <div class="options cols-2">
             <label class="opt"><input type="checkbox" name="criteres" value="Expertise métier"> Expertise métier</label>
@@ -281,46 +322,134 @@
         </div>
 
         <div class="q">
-          <span class="q__label">Seriez-vous intéressé(e) pour découvrir nos futures formations ?</span>
+          <span class="q__label">Seriez-vous intéressé(e) pour découvrir nos futures formations&nbsp;?</span>
           <div class="options cols-2" data-max="1">
-            <label class="opt"><input type="radio" name="interet" value="Oui" id="interet-oui"> Oui</label>
+            <label class="opt"><input type="radio" name="interet" value="Oui"> Oui</label>
             <label class="opt"><input type="radio" name="interet" value="Non"> Non</label>
           </div>
         </div>
 
         <div class="q">
-          <label for="email">Votre email <span style="color:var(--muted);font-weight:500">(facultatif)</span></label>
-          <p class="hint">Uniquement si vous souhaitez être recontacté(e) — votre questionnaire reste anonyme.</p>
+          <label class="q__label" for="email">Votre email <span style="color:var(--muted);font-weight:400">(facultatif)</span></label>
+          <p class="hint">Uniquement si vous souhaitez être recontacté(e) — le questionnaire reste anonyme.</p>
           <input type="email" id="email" name="email" placeholder="prenom@entreprise.fr" />
         </div>
       </section>
 
       <div class="submit-row">
-        <button type="submit" class="btn">Envoyer mes réponses →</button>
+        <button type="submit" class="btn">Envoyer mes réponses</button>
         <p class="privacy">Vos réponses nous aident à construire des formations qui vous ressemblent. Merci&nbsp;!</p>
       </div>
     </form>
 
     <div class="thanks" id="thanks">
-      <div class="check">✓</div>
+      <svg class="mark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="M8 12.5l2.5 2.5 5-5.5"/></svg>
       <h2>Merci pour votre participation&nbsp;!</h2>
       <p>Vos réponses ont bien été prises en compte. Elles nous aideront à concevoir des formations réellement adaptées à vos besoins.</p>
     </div>
 
     <footer>
-      <strong>T &amp; C Développement</strong> — Développement des compétences humaines et opérationnelles.
+      <strong>T &amp; C Développement</strong> — Développement des compétences humaines et opérationnelles
     </footer>
   </div>
 
   <script>
-    // Barre de progression au scroll
+    /* ---------- Barre de progression ---------- */
     const bar = document.getElementById('progress');
     window.addEventListener('scroll', () => {
       const h = document.documentElement.scrollHeight - window.innerHeight;
       bar.style.width = (h > 0 ? (window.scrollY / h) * 100 : 0) + '%';
-    });
+    }, { passive:true });
 
-    // État visuel + limite de cases par groupe
+    /* ---------- Dessin du pissenlit ---------- */
+    (function drawDandelion(){
+      const R = 130, N = 220;
+      let f = '';
+      for (let i = 0; i < N; i++){
+        const a = (i / N) * Math.PI * 2 + (Math.random()-0.5)*0.05;
+        const len = R * (0.78 + Math.random()*0.22);
+        const x = Math.cos(a) * len, y = Math.sin(a) * len;
+        f += `<line x1="0" y1="0" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}"/>`;
+        f += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="${(0.7+Math.random()*0.7).toFixed(1)}" stroke="none" fill="currentColor"/>`;
+      }
+      const vb = R + 24;
+      const svg =
+        `<svg viewBox="${-vb} ${-vb} ${vb*2} ${vb*2 + 300}" xmlns="http://www.w3.org/2000/svg">
+          <path d="M0 ${R} C -10 ${R+90}, 16 ${R+180}, -8 ${R+296}" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"/>
+          <g stroke="currentColor" stroke-width="0.8" fill="currentColor">${f}</g>
+          <circle cx="0" cy="0" r="4" fill="currentColor" stroke="none"/>
+        </svg>`;
+      document.getElementById('dandelion').innerHTML = svg;
+    })();
+
+    /* ---------- Graines (akènes) qui s'envolent ---------- */
+    (function seeds(){
+      const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (reduce) return;
+      const layer = document.querySelector('.decor');
+
+      // SVG d'une graine de pissenlit : aigrette (filaments) + tige + akène
+      function seedMarkup(size){
+        let fil = '';
+        const n = 11;
+        for (let i = 0; i < n; i++){
+          const ang = (-72 + (144 * i / (n-1))) * Math.PI/180; // depuis la verticale
+          const len = 9 + Math.random()*3;
+          const x = Math.sin(ang) * len, y = -Math.cos(ang) * len;
+          fil += `<line x1="0" y1="0" x2="${x.toFixed(1)}" y2="${y.toFixed(1)}"/>`;
+          fil += `<circle cx="${x.toFixed(1)}" cy="${y.toFixed(1)}" r="0.5" stroke="none" fill="currentColor"/>`;
+        }
+        return `<svg width="${size}" height="${size*1.5}" viewBox="-16 -18 32 46" xmlns="http://www.w3.org/2000/svg">
+          <g stroke="currentColor" stroke-width="0.7" fill="currentColor" opacity="0.95">${fil}</g>
+          <path d="M0 0 Q 1.4 12 0.3 21" fill="none" stroke="currentColor" stroke-width="0.7"/>
+          <path d="M0.3 21 q -1.5 3.2 0 5.4 q 1.5 -2.2 0 -5.4 z" fill="currentColor" stroke="none"/>
+        </svg>`;
+      }
+
+      const COUNT = 15;
+      for (let i = 0; i < COUNT; i++){
+        const el = document.createElement('div');
+        el.className = 'seed';
+        const size = 14 + Math.random()*16;         // 14–30px
+        el.innerHTML = seedMarkup(size);
+        el.style.opacity = (0.16 + Math.random()*0.24).toFixed(2);
+        layer.appendChild(el);
+        launch(el);
+      }
+
+      function launch(el){
+        const vw = window.innerWidth, vh = window.innerHeight;
+        // départ : bord bas-gauche (près du pissenlit) ou bas de l'écran
+        const startX = -60 + Math.random() * vw * 0.5;
+        const startY = vh + 40 + Math.random()*80;
+        // arrivée : vers le haut-droite (poussé par le vent)
+        const endX = startX + vw * (0.45 + Math.random()*0.7);
+        const endY = -80 - Math.random()*120;
+        const dur = 16000 + Math.random()*14000;    // 16–30 s
+        const swayAmp = 24 + Math.random()*40;
+        const swayFreq = 1.5 + Math.random()*2;
+        const spin = (Math.random()*2 - 1) * 220;
+        const start = performance.now() + Math.random()* (-dur); // certaines déjà en cours
+
+        function frame(now){
+          let t = (now - start) / dur;
+          if (t >= 1){ launch(el); return; }         // relance en boucle
+          if (t < 0) t = 0;
+          const ease = t;                             // vitesse ~constante (vent)
+          const x = startX + (endX - startX) * ease + Math.sin(t * Math.PI * swayFreq) * swayAmp;
+          const y = startY + (endY - startY) * ease;
+          const rot = spin * t + Math.sin(t * Math.PI * swayFreq) * 12;
+          // fondu en entrée et en sortie
+          const fade = Math.min(1, t*6) * Math.min(1, (1-t)*6);
+          el.style.transform = `translate3d(${x.toFixed(1)}px, ${y.toFixed(1)}px, 0) rotate(${rot.toFixed(1)}deg)`;
+          el.style.opacity = (0.30 * fade).toFixed(3);
+          requestAnimationFrame(frame);
+        }
+        requestAnimationFrame(frame);
+      }
+    })();
+
+    /* ---------- Logique du formulaire ---------- */
     const form = document.getElementById('survey');
 
     function refreshGroup(group){
@@ -331,7 +460,6 @@
       boxes.forEach(b => {
         const opt = b.closest('.opt');
         opt.classList.toggle('checked', b.checked);
-        // Limite uniquement pour les cases à cocher avec un max défini
         if (b.type === 'checkbox' && max > 0){
           const lock = !b.checked && checkedCount >= max;
           b.disabled = lock;
@@ -339,10 +467,9 @@
         }
       });
 
-      // Compteur éventuel
       const name = boxes[0] && boxes[0].name;
       const counter = document.querySelector('.counter[data-for="' + name + '"]');
-      if (counter && max > 0) counter.textContent = checkedCount + '/' + max;
+      if (counter && max > 0) counter.textContent = checkedCount + ' / ' + max;
     }
 
     form.querySelectorAll('.options').forEach(g => {
@@ -350,21 +477,21 @@
       refreshGroup(g);
     });
 
-    // Soumission — collecte les réponses (démo : affichage remerciement + console)
     form.addEventListener('submit', (e) => {
       e.preventDefault();
       const data = new FormData(form);
       const result = {};
       for (const [k, v] of data.entries()){
-        if (result[k]) { result[k] = [].concat(result[k], v); }
-        else { result[k] = v; }
+        if (result[k]) result[k] = [].concat(result[k], v);
+        else result[k] = v;
       }
       console.log('Réponses de l\'enquête :', result);
 
       form.style.display = 'none';
+      document.querySelector('.intro').style.display = 'none';
       const thanks = document.getElementById('thanks');
       thanks.classList.add('show');
-      thanks.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      thanks.scrollIntoView({ behavior:'smooth', block:'center' });
     });
   </script>
 </body>
