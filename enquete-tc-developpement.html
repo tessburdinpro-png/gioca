@@ -7,7 +7,7 @@
   <meta name="description" content="Étude auprès des professionnels : vos problématiques, priorités de formation, budgets et modes de formation préférés. Questionnaire anonyme, 3 minutes." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,500;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
   <style>
     :root{
       --ink:#1d2b2b;          /* vert-ardoise profond */
@@ -34,7 +34,7 @@
       -webkit-font-smoothing:antialiased;
       position:relative;overflow-x:hidden;
     }
-    .serif{font-family:'Cormorant Garamond',Georgia,serif}
+    .serif{font-family:'Tinos','Times New Roman',Georgia,serif}
     .wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px;position:relative;z-index:2}
 
     /* ===== Décor : pissenlit + graines au vent ===== */
@@ -54,7 +54,7 @@
     @keyframes drift2{50%{transform:translate(30px,-28px) scale(1.06)}}
     /* boule de lumière qui se déplace doucement */
     .orb{position:absolute;top:0;left:0;width:min(34vw,300px);height:min(34vw,300px);border-radius:50%;
-      background:radial-gradient(circle,rgba(255,251,238,.95) 0%,rgba(240,214,150,.55) 30%,rgba(150,190,170,.28) 52%,rgba(150,190,170,0) 72%);
+      background:radial-gradient(circle,rgba(255,255,255,.95) 0%,rgba(214,232,224,.5) 30%,rgba(150,190,175,.26) 52%,rgba(150,190,175,0) 72%);
       filter:blur(26px);will-change:transform,opacity;
       animation:orbit 30s ease-in-out infinite,glow 7s ease-in-out infinite}
     @keyframes orbit{
@@ -85,8 +85,8 @@
     .brand{display:inline-flex;align-items:center;gap:9px;font-size:12.5px;font-weight:600;letter-spacing:2.5px;
       text-transform:uppercase;color:var(--brand);margin-bottom:34px}
     .brand::before,.brand::after{content:"";width:26px;height:1px;background:var(--line-strong)}
-    header h1{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:clamp(46px,8vw,78px);line-height:1.02;
-      letter-spacing:-.5px;color:var(--ink)}
+    header h1{font-family:'Tinos','Times New Roman',Georgia,serif;font-weight:700;font-size:clamp(42px,7.5vw,70px);line-height:1.04;
+      letter-spacing:-.3px;color:var(--ink)}
     header h1 em{font-style:italic;color:var(--brand)}
     .lead{color:var(--ink-soft);font-size:17.5px;font-weight:400;max-width:560px;margin:22px auto 0;line-height:1.7}
     .meta{margin-top:28px;font-size:13px;letter-spacing:.4px;color:var(--muted);
@@ -116,9 +116,9 @@
       box-shadow:0 24px 60px -46px rgba(29,43,43,.55)}
     .section__head{display:flex;align-items:baseline;gap:16px;padding-bottom:22px;margin-bottom:8px;
       border-bottom:1px solid var(--line)}
-    .section__num{font-family:'Cormorant Garamond',Georgia,serif;font-style:italic;font-size:27px;color:var(--accent);
-      font-weight:600;flex:0 0 auto;line-height:1}
-    .section__title{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:31px;letter-spacing:-.2px;color:var(--ink)}
+    .section__num{font-family:'Tinos','Times New Roman',Georgia,serif;font-style:italic;font-size:26px;color:var(--accent);
+      font-weight:700;flex:0 0 auto;line-height:1}
+    .section__title{font-family:'Tinos','Times New Roman',Georgia,serif;font-weight:700;font-size:29px;letter-spacing:-.1px;color:var(--ink)}
 
     .q{margin-top:28px}
     .q__label{display:block;font-weight:600;font-size:16px;color:var(--ink);margin-bottom:5px;letter-spacing:-.1px}
@@ -164,7 +164,7 @@
     .thanks.show{display:block;animation:rise .5s ease}
     @keyframes rise{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
     .thanks .mark{width:70px;height:70px;margin:0 auto 24px;color:var(--brand)}
-    .thanks h2{font-family:'Cormorant Garamond',Georgia,serif;font-weight:600;font-size:40px;margin-bottom:12px;letter-spacing:-.3px}
+    .thanks h2{font-family:'Tinos','Times New Roman',Georgia,serif;font-weight:700;font-size:37px;margin-bottom:12px;letter-spacing:-.2px}
     .thanks p{color:var(--ink-soft);max-width:440px;margin:0 auto;font-size:16px}
 
     footer{text-align:center;color:var(--muted);font-size:12.5px;letter-spacing:.3px;padding:10px 0 56px}
